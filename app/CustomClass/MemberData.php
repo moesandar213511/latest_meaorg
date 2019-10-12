@@ -1,0 +1,46 @@
+<?php
+
+
+namespace App\CustomClass;
+
+
+use App\Member;
+
+class MemberData
+{
+
+    private $id;
+    private $member_data;
+
+    function __construct($member_id) {
+        $member=Member::findOrFail($member_id);
+        $this->id=$member->id;
+        $this->setMemberData($member);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMemberData()
+    {
+        return $this->member_data;
+    }
+
+    /**
+     * @param mixed $blog_data
+     */
+    private function setMemberData($member_data)
+    {
+        $this->member_data = $member_data;
+    }
+
+    public static function getCustomMember($datas){
+        $arr=[];
+        foreach ($datas as $item){
+            $obj=new MemberData($item->id);
+            array_push($arr,$obj->getMemberData());
+        }
+        return $arr;
+    }
+
+}

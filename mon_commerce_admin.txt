@@ -1,0 +1,5 @@
+admin - admin@gmail.com
+pass - admin1001
+
+member - phyo@gmail.com
+pass- phyo1001

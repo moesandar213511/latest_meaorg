@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Page Title -->
+    <title>@yield('title')</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{asset('user/images/logo/favicon.png')}}" type="image/x-icon">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{asset('user/css/animate-3.7.0.css')}}">
+    <link rel="stylesheet" href="{{asset('user/css/font-awesome-4.7.0.min.cs')}}s">
+    <link rel="stylesheet" href="{{asset('user/fonts/flat-icon/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('user/css/bootstrap-4.1.3.min.css')}}">
+    <link rel="stylesheet" href="{{asset('user/css/owl-carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('user/css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('user/css/style.css')}}">
+    @yield('css')
+</head>
+<body>
+    <!-- Preloader Starts -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Header Area Starts -->
+    @include('user.site_user.user_header')
+    <!-- Header Area End -->
+    @yield('content')
+        <!-- Banner Area Starts -->
+
+    <!-- Footer Area Starts -->
+    @include('user.site_user.user_footer')
+        <!-- Footer Area End -->
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{asset('user/js/vendor/bootstrap-4.1.3.min.js')}}"></script>
+    <script src="{{asset('user/js/vendor/wow.min.js')}}"></script>
+    <script src="{{asset('user/js/vendor/owl-carousel.min.js')}}"></script>
+    <script src="{{asset('user/js/vendor/jquery.nice-select.min.js')}}"></script>
+    <script src="{{asset('user/js/vendor/ion.rangeSlider.js')}}"></script>
+    <script src="{{asset('user/js/main.js')}}"></script>
+</body>
+</html>
