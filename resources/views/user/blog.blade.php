@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <h2>Blog</h2>
+                    <h2>News</h2>
                     <p>There spirit beginning bearing the open at own every give appear in third you sawe two boys</p>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                                 </h2>
                             </a>
                             <p>
-                                {{substr(preg_replace("/&#?[a-z0-9]{2,8};/i","",strip_tags($item['text'])),0,300)}}
+                                {{substr(preg_replace("/&#?[a-z0-9]{2,8};/i","",strip_tags($item['text'])),0,300)}} ......
                             </p>
                             {{--<div class="bottom-meta">--}}
                                 {{--<div class="user-details row align-items-center">--}}

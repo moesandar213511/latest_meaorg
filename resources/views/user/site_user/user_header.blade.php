@@ -23,7 +23,7 @@
                             <li class="@if($page=='/about') active @endif"><a href="{{url('/about')}}">about us</a></li>
                             <li class="@if($page=='/company') active @endif"><a href="{{url('/companies')}}">company</a></li>
                             <li class="@if($page=='/gallery') active @endif"><a href="{{url('/gallery')}}">Gallery</a></li>
-                            <li class="@if($page=='/blog') active @endif"><a href="{{url('/blog')}}">blog</a></li>
+                            <li class="@if($page=='/blog') active @endif"><a href="{{url('/blog')}}">News</a></li>
                             <li class="@if($page=='/event') active @endif"><a href="{{url('/event')}}">Event</a>
                             <li class="@if($page=='/contact') active @endif"><a href="{{url('/contact')}}">contact</a></li>
                         </ul>

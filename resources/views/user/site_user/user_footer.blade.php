@@ -39,6 +39,7 @@
                         <div class="col-md-3">
                             <div class="single-widge-home">
                                 <h3 class="mb-4" style="text-align: center;">Facebook</h3>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.6333656034717!2d96.21300891418005!3d16.844535022668932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c19373aae8dda7%3A0x66b1fddc29486ea!2sGreen%20Hackers%20Institute%20(GHI%20MYANMAR)!5e0!3m2!1sen!2smm!4v1570889069430!5m2!1sen!2smm" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                                 
                             </div>
                         </div>

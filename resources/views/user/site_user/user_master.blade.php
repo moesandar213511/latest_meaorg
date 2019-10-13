@@ -15,9 +15,12 @@
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{asset('user/css/animate-3.7.0.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/font-awesome-4.7.0.min.cs')}}s">
+    {{--<link rel="stylesheet" href="{{asset('user/css/font-awesome-4.7.0.min.cs')}}">--}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('user/fonts/flat-icon/flaticon.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/bootstrap-4.1.3.min.css')}}">
+    {{--<link rel="stylesheet" href="{{asset('user/css/bootstrap-4.1.3.min.css')}}">--}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="{{asset('user/css/owl-carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('user/css/nice-select.css')}}">
     <link rel="stylesheet" href="{{asset('user/css/style.css')}}">
@@ -42,11 +45,13 @@
         <!-- Footer Area End -->
     <!-- Javascript -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="{{asset('user/js/vendor/bootstrap-4.1.3.min.js')}}"></script>
+{{--    <script src="{{asset('user/js/vendor/bootstrap-4.1.3.min.js')}}"></script>--}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="{{asset('user/js/vendor/wow.min.js')}}"></script>
     <script src="{{asset('user/js/vendor/owl-carousel.min.js')}}"></script>
     <script src="{{asset('user/js/vendor/jquery.nice-select.min.js')}}"></script>
     <script src="{{asset('user/js/vendor/ion.rangeSlider.js')}}"></script>
     <script src="{{asset('user/js/main.js')}}"></script>
+@yield('js')
 </body>
 </html>

@@ -39,23 +39,23 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form action="#" class="d-md-flex justify-content-between">
-                            <select>
-                                <option value="1">Main Category</option>
-                                <option value="2">Part Time</option>
-                                <option value="3">Full Time</option>
-                                <option value="4">Remote</option>
-                                <option value="5">Office Job</option>
+                        <form action="" onsubmit="search_data()"  class="d-md-flex justify-content-between">
+                            {{csrf_field()}}
+
+                            <select id="main_id" name="main_id" onchange="set_sub_category()">
+                                {{--<option>Main Category</option>--}}
+                                @foreach($main_categories as $data)
+                                    <option value="{{$data['id']}}">{{$data['name']}}</option>
+                                    @endforeach
                             </select>
-                            <select>
-                                <option value="1">Sub Category</option>
-                                <option value="2">Dhaka</option>
-                                <option value="3">Rajshahi</option>
-                                <option value="4">Barishal</option>
-                                <option value="5">Noakhali</option>
+                            <select name="sub_id" id="sub_id">
+                                @foreach($default_sub_categories as $data)
+                                    <option value="{{$data['id']}}">{{$data['name']}}</option>
+                                @endforeach
                             </select>
-                            <input type="text" placeholder="Search Keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'" required>
-                           <button type="submit" class="template-btn">Search</button>
+                            <input type="text" id="keyword" name="keyword" placeholder="Search Keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'" required>
+                           {{--<button type="submit" class="template-btn">Search</button>--}}
+                            <input type="submit" class="template-btn" value="Searchd">
                         </form>
                     </div>
                 </div>
@@ -467,3 +467,47 @@
     </section>
     <!-- Download Area End -->  
 @endsection
+
+@section('js')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        set_sub_category=function(){
+            var main=document.getElementById('main_id');
+            var main_id=main.value;
+            $.ajax({
+                type: 'get',
+                url: '{{url("get_sub_category")}}'+'/'+main_id,
+                cache:false,
+                contentType: false,
+                processData: false,
+                success: function(result) {
+                    var sub=document.getElementById('sub_id');
+                    sub.innerHTML="";
+                    for(var i=0;i<result.length;i++){
+//                        sub.innerHTML+="<option value="+result[i].id+">"+result[i].name+"</option>";
+                        sub.options[i] = new Option(result[i].name, result[i].name);
+                    }
+
+                    console.log(sub.innerHTML);
+                    console.log('hello');
+
+                },
+            });
+        }
+        search_data=function () {
+            event.preventDefault();
+            var sub=document.getElementById('sub_id');
+            var sub_id=sub.value;
+            var key=document.getElementById('keyword');
+            var keyword=key.value;
+
+            var link='{{url('search/company')}}'+'/'+sub_id+'/'+keyword;
+            console.log(link);
+            window.open(link,'_self');
+        }
+    </script>
+    @endsection

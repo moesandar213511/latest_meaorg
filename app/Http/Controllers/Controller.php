@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Company;
 use App\CustomClass\BlogData;
+use App\CustomClass\CompanyData;
 use App\CustomClass\SubcategoryData;
 use App\CustomClass\WebSiteInfo;
 use App\CustomClass\WebSiteInfoData;
@@ -14,6 +16,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use App\Contact;
+use Illuminate\Support\Facades\DB;
+
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -23,8 +27,10 @@ class Controller extends BaseController
 
     }
 
-    function home_page(){
-
+    function get_sub_category($id){
+        $sub=SubCategory::where('main_id',$id)->get();
+        $sub_categories=SubcategoryData::getCustomLimitSubCategory($sub);
+        return $sub_categories;
     }
 
     public function store(Request $request){
@@ -39,4 +45,6 @@ class Controller extends BaseController
 
 
     }
+
+
 }

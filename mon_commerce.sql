@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2019 at 07:53 AM
+-- Generation Time: Oct 13, 2019 at 06:12 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -293,7 +293,7 @@ CREATE TABLE `main_categories` (
 
 INSERT INTO `main_categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (2, 'redmi', '2019-10-09 17:30:00', '2019-10-09 17:30:00'),
-(3, 'main category', '2019-10-10 08:09:34', '2019-10-10 08:35:22');
+(3, 'aPPLE', '2019-10-10 08:09:34', '2019-10-10 08:35:22');
 
 -- --------------------------------------------------------
 
@@ -385,18 +385,18 @@ CREATE TABLE `sub_categories` (
 --
 
 INSERT INTO `sub_categories` (`id`, `main_id`, `name`, `logo`, `created_at`, `updated_at`) VALUES
-(4, 3, 'testing 4', 'cat1.png', '2019-10-10 09:36:21', '2019-10-10 10:54:32'),
-(5, 2, 'testing 3', 'cat2.png', '2019-10-10 09:36:30', '2019-10-10 10:53:49'),
-(6, 3, 'logo testing', 'cat3.png', '2019-10-10 10:42:15', '2019-10-10 10:49:55'),
-(7, 3, 'testing 4', 'cat1.png', '2019-10-10 09:36:21', '2019-10-10 10:54:32'),
-(8, 2, 'testing 3', 'cat2.png', '2019-10-10 09:36:30', '2019-10-10 10:53:49'),
-(9, 3, 'logo testing', 'cat3.png', '2019-10-10 10:42:15', '2019-10-10 10:49:55'),
-(10, 3, 'testing 4', 'cat1.png', '2019-10-10 09:36:21', '2019-10-10 10:54:32'),
-(11, 2, 'testing 3', 'cat2.png', '2019-10-10 09:36:30', '2019-10-10 10:53:49'),
-(12, 3, 'logo testing', 'cat3.png', '2019-10-10 10:42:15', '2019-10-10 10:49:55'),
-(13, 3, 'testing 4', 'cat1.png', '2019-10-10 09:36:21', '2019-10-10 10:54:32'),
-(14, 2, 'testing 3', 'cat2.png', '2019-10-10 09:36:30', '2019-10-10 10:53:49'),
-(15, 3, 'logo testing', 'cat3.png', '2019-10-10 10:42:15', '2019-10-10 10:49:55');
+(4, 3, 'AAA', 'cat1.png', '2019-10-10 09:36:21', '2019-10-10 10:54:32'),
+(5, 2, 'BBB', 'cat2.png', '2019-10-10 09:36:30', '2019-10-10 10:53:49'),
+(6, 3, 'CCC', 'cat3.png', '2019-10-10 10:42:15', '2019-10-10 10:49:55'),
+(7, 3, 'DDD', 'cat1.png', '2019-10-10 09:36:21', '2019-10-10 10:54:32'),
+(8, 2, 'EEE', 'cat2.png', '2019-10-10 09:36:30', '2019-10-10 10:53:49'),
+(9, 3, 'FFF', 'cat3.png', '2019-10-10 10:42:15', '2019-10-10 10:49:55'),
+(10, 3, 'GGG', 'cat1.png', '2019-10-10 09:36:21', '2019-10-10 10:54:32'),
+(11, 2, 'QWWWEE', 'cat2.png', '2019-10-10 09:36:30', '2019-10-10 10:53:49'),
+(12, 3, 'TTT', 'cat3.png', '2019-10-10 10:42:15', '2019-10-10 10:49:55'),
+(13, 3, 'WWW', 'cat1.png', '2019-10-10 09:36:21', '2019-10-10 10:54:32'),
+(14, 2, 'TTTYYY', 'cat2.png', '2019-10-10 09:36:30', '2019-10-10 10:53:49'),
+(15, 3, 'BBBBNNNN', 'cat3.png', '2019-10-10 10:42:15', '2019-10-10 10:49:55');
 
 -- --------------------------------------------------------
 
@@ -553,7 +553,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -577,7 +577,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `galleries`
 --
 ALTER TABLE `galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `main_categories`

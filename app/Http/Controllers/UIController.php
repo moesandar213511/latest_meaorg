@@ -7,6 +7,7 @@ use App\Company;
 use App\CustomClass\Path;
 use App\Event;
 use App\Gallery;
+use App\MainCategory;
 use App\Member;
 use App\CustomClass\BlogData;
 use App\CustomClass\CompanyData;
@@ -27,20 +28,27 @@ class UIController extends Controller
         $latest_event=EventData::getLatestEvent(6);
         $company=Company::all();
         $sortedcompany=CompanyData::getCustomCompany($company);
-        $pupular_company=array_slice($sortedcompany, 0, 10);
+        $popular_company=array_slice($sortedcompany, 0, 10);
+
+        $main_categories=MainCategory::all();
+        $default_sub_categories=SubCategory::where('main_id',$main_categories[0]['id'])->get();
+
 //        return $subcategorydata;
         return view('user.index')->with([
             'websiteinfo'=>$website_info,
             'sub_category'=>$subcategorydata,
             'latest_news'=>$latest_news,
             'latest_event'=>$latest_event,
-            'popular_company'=>$pupular_company,
+            'popular_company'=>$popular_company,
+            'main_categories'=>$main_categories,
+            'default_sub_categories'=>$default_sub_categories,
             'page'=>'home'
         ]);
     }
     public function company_list(){
         $website_info=WebSiteInfoData::getWebSiteInfo();
         $latest_news=BlogData::getLatestBlog(4);
+
         $companies=Company::orderBy('id','desc')->paginate(10);
         $company_list=CompanyData::getCustomCompany($companies);
 
@@ -51,6 +59,22 @@ class UIController extends Controller
             'companies'=>$company_list,
             'paginate'=>$companies,
             'page'=>'company'
+        ]);
+    }
+
+    public function search_company($sub_id,$keyword){
+        $website_info=WebSiteInfoData::getWebSiteInfo();
+        $latest_news=BlogData::getLatestBlog(4);
+
+        $company=Company::where('sub_category_id',$sub_id)->where('name', 'LIKE', "%{$keyword}%")->paginate(10);
+        $result=CompanyData::getCustomCompany($company);
+        return view('user.company_list')->with([
+            'websiteinfo'=>$website_info,
+            'latest_news'=>$latest_news,
+            'page'=>'company',
+            'companies'=>$result,
+            'paginate'=>$company,
+            'banner_title'=>'Result For '.$keyword,
         ]);
     }
 
@@ -136,7 +160,8 @@ class UIController extends Controller
             'websiteinfo'=>$website_info,
             'latest_news'=>$latest_news,
             'gallery'=>$arr,
-            'page'=>'gallery'
+            'page'=>'gallery',
+            'paginate'=>$gallery
         ]);
     }
 

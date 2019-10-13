@@ -11,7 +11,7 @@
                         <a href="index.html">Home</a>
                         <a href="elements.html">Elements</a>
                     </div> -->
-                    <h2>Companies Category Details</h2>
+                    <h2>Company List</h2>
                 </div>
             </div>
         </div>

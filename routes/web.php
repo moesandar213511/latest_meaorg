@@ -106,6 +106,8 @@ Route::get('/blog/{id}', 'UIController@blog_detail');
 Route::get('/contact', 'UIController@contactus');
 Route::get('/event', 'UIController@event');
 Route::get('/event/{id}', 'UIController@event_single');
+Route::get('get_sub_category/{id}','Controller@get_sub_category');
+Route::get('search/company/{sub_id}/{keyword}','UIController@search_company');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 //contact

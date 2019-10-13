@@ -1,11 +1,28 @@
 ﻿
 to do
 ====
-nab scroll hide
+nav bar ကို scroll လုပ္ရင္ ျပရန္
+nav bar active သိသာရန္လုပ္ရန္
+logo ထည့္ရန္
+website name ၾကည့္ခိုင္းရန္
+float btn for scroll up
+pagination ေတြစစ္ခိုင္းရန္
+footer မွာ news ကို img ထည့္ရန္
+footer မွာ facebook ထည့္ရန္
+
+
 
 
 home page-> sub category မွာ total ျပင္ရန္
-edit member profile in 
+home page-> search bar တြင္ label ထိုးရန္
+edit member profile from member account
+ads management system ထည့္ရန္
+admin မွာ contact list ျပရန္
+event & blog မွာ social share
+event & blog မွာ search
+nav bar မွာ category မထားဘူးလား
+admin dashboard မွာ logo& website name change
+
 
 
 
