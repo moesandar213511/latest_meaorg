@@ -38,12 +38,12 @@
             @if(Auth::check())
             <?php $type=Auth::user()->type; ?>
                 @if($type == "admin")
-                    {{-- <li class="nav-item @if($url=="blog") active @endif">
-                        <a class="nav-link" href="{{url('admin/blog')}}">
-                            <i class="material-icons">bubble_chart</i>
-                            <p>Manage Blog</p>
+                    <li class="nav-item @if($url=="company") active @endif">
+                        <a class="nav-link" href="{{url('admin/company')}}">
+                            <i class="material-icons">person</i>
+                            <p>Company</p>
                         </a>
-                    </li>  --}}
+                    </li>
                     <li class="nav-item @if($url=="member") active @endif">
                         <a class="nav-link" href="{{url('admin/member')}}">
                             <i class="material-icons">bubble_chart</i>

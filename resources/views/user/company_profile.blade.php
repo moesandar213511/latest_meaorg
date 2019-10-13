@@ -3,8 +3,22 @@
     {{$company['name']}} |{{$websiteinfo['website_name']}}
 @endsection
 
+@section('page_title')
+    <div class="page-title text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    {{--<h2>{{$company['name']}}</h2>--}}
+                    {{--<p>There spirit beginning bearing the open at own every give appear in third you sawe two boys</p>--}}
+                </div>
+            </div>
+        </div>
+    </div>
+    @endsection
+
 @section('content')
       <!-- Search Area Starts -->
+      {{--<br><br><br><br>--}}
     <div class="search-area">
         <div class="search-bg">
             <div class="container">
@@ -46,6 +60,7 @@
 
     <div class="whole-wrap">
         <div class="container">
+            <h3>Gallery</h3>
             <div class="section-top-border">
                 <div class="row gallery-item">
                     @foreach($company['company_photos'] as $item)

@@ -39,7 +39,7 @@
 
     </div>
 
-    @include('admin.layouts.site_admin.site_admin_flot_btn')
+    {{--@include('admin.layouts.site_admin.site_admin_flot_btn')--}}
 </div>
 
 
@@ -79,7 +79,7 @@
 <!-- Library for adding dinamically elements -->
 <script src="{{url('js/admin_js/plugins/arrive.min.js')}}"></script>
 <!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+{{--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>--}}
 <!-- Chartist JS -->
 <script src="{{url('js/admin_js/plugins/chartist.min.js')}}"></script>
 <!--  Notifications Plugin    -->

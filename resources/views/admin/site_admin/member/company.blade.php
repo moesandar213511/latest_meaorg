@@ -41,7 +41,10 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
+                            <h3>Company List</h3>
+                            @if(\Illuminate\Support\Facades\Auth::user()->type=="admin")
                             <button type="button" name="button" class="btn btn-success pull-right" data-target="#modalBox" data-toggle="modal" data-keyboard="false" data-backdrop="static">Add</button>
+                                @endif
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -95,8 +98,39 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="name"><b>Name</b></label>
+                                                <label for="name"><b>Company Name</b></label>
                                                 <input type="text" name="name" class="form-control" id="name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="name"><b>Select Member</b></label>
+                                                <select name="member_id" class="form-control">
+                                                    @foreach ($member as $data)
+                                                        <option value="{{$data->id}}">{{$data->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="name"><b>Company Type(Ads or Normal)</b></label>
+                                                <select name="type" class="form-control">
+                                                   <option value="ads">Ads Company</option>
+                                                   <option value="normal">Normal Company</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="name"><b>Ads Date</b></label>
+                                                <input type="date" class="form-control" name="ads_date">
                                             </div>
                                         </div>
                                     </div>
@@ -218,18 +252,39 @@
                                 <div class="col-sm-4 imgUp">
                                     <img src="{{asset('images/default.jpg')}}" id="imgs" class="imagePreview img-thumbnail">
                                     <label class="btn btn-primary upload_btn">
-                                        Upload Logo<input type="file" accept="image/png,image/jpeg,image/jpg" onchange="displaySelectedPhoto('update_logo','imgs')" id="update_logo" name="logo" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" required>
+                                        Upload Logo<input type="file" accept="image/png,image/jpeg,image/jpg" onchange="displaySelectedPhoto('update_logo','imgs')" id="update_logo" name="logo" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
                                     </label>
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="update_name">Name</label>
+                                                <label for="update_name">CompanyName</label>
                                                 <input type="text" name="name" class="form-control" id="update_name" required>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for=""><b>Company Type (Ads or Normal)</b></label>
+                                                <select name="type" class="form-control">
+                                                    <option value="normal" id="normal">Normal Company</option>
+                                                    <option value="ads" id="ads">Ads Company</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for=""><b>Ads Date</b></label>
+                                                <input type="date" name="ads_date" id="ads_date" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -255,7 +310,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="update_phone">Phone</label>
-                                        <input type="phone" name="phone" class="form-control" id="update_phone" required>
+                                        <input type="tel" name="phone" class="form-control" id="update_phone" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -354,18 +409,18 @@
                     cache: false,
                     success: function(data){
                         var data_return=JSON.parse(data);
-                        console.log(data);
+                        //console.log(data);
                         t.clear();
                         var no = 1;
                         for(var i = 0;i<data_return.length;i++){
-                            var link="{{url('/member/company_detail/')}}/"+data_return[i]['id'];
+                            var link="{{url('company')}}/"+data_return[i]['id'];
                             var gallery_link="{{url('/member/company_photodetail/')}}/"+data_return[i]['id'] 
                             t.row.add([
                                 no++,
                                 '<img src="'+data_return[i]['photo_url']+'" alt="" style="width:80px;height:80px">',
                                 data_return[i]['name'],
                                 data_return[i]['email'],
-                                '<a href="'+link+'" class="btn btn-primary rounded-0 btn-sm">Detail</a>'+
+                                '<a target="_blank" href="'+link+'" class="btn btn-primary rounded-0 btn-sm">Detail</a>'+
                                 '<button class="btn btn-success btn-sm" onclick="edit_data('+data_return[i]['id']+')" data-target="#edit_modalBox" data-toggle="modal">Edit</button>'+
                                 '<button class="btn btn-danger btn-sm" onclick="delete_data('+data_return[i]['id']+')">Delete</button>'+
                                 '<a href="'+gallery_link+'" class="btn btn-info rounded-0 btn-sm">Edit Photos</a>'
@@ -391,7 +446,7 @@
                     contentType: false,
                     success: function(data){
                         // alert('itwork');
-                        //console.log(data);
+//                        console.log(data);
                         $('#modalBox').modal('hide');
                         toastr.success('Create member account successful');
                         load();
@@ -401,7 +456,6 @@
             });
 
             edit_data=function(id){
-
                 $.ajax({
                     type: "POST",
                     url: "../member/edit_company/"+id,
@@ -425,7 +479,8 @@
                         $('#update_vision').val(company['vision']);
                         $('#update_mission').val(company['mission']);
                         $('#update_about_us').val(company['about-us']);                        
-                       
+                        $('#ads_date').val(company['ads_date']);
+                        company['type']=="ads"?$("#ads").attr("selected","selected"):$("#ads").attr("selected","selected");
 
                         $('#edit_modalBox').modal('show');
                     }
@@ -460,10 +515,11 @@
                 if(confirm('Are you sure You want to delete!')==true){
                     $.ajax({
                         type: "get",
-                        url: "delete_company/"+id,
+                        url: "../member/delete_company/"+id,
 
                         cache: false,
                         success: function(data){
+                            console.log(data);
                             toastr.success('Delete Company Data successful');
                             load();
                         }

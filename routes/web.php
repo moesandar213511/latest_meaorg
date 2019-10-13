@@ -65,6 +65,8 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::post('/update/event','EventController@update');
     Route::post('/delete/event/{id}','EventController@destroy');
 
+    Route::get('admin/company', 'CompanyController@index');
+
 });
 
 
@@ -106,4 +108,5 @@ Route::get('/event', 'UIController@event');
 Route::get('/event/{id}', 'UIController@event_single');
 
 // Route::get('/home', 'HomeController@index')->name('home');
-
+//contact
+Route::post('/contact','Controller@store');

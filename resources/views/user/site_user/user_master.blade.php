@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{asset('user/css/owl-carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('user/css/nice-select.css')}}">
     <link rel="stylesheet" href="{{asset('user/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('css/toastr.min.css')}}">
     @yield('css')
 </head>
 <body>

@@ -43,6 +43,7 @@
                     </div>
                    @endforeach
                 </div>
+                {{$paginate->links()}}
             </div>
             
         </div>

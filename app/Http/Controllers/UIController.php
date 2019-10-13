@@ -25,7 +25,9 @@ class UIController extends Controller
         $subcategorydata=SubcategoryData::getCustomLimitSubCategory($subcategory);
         $latest_news=BlogData::getLatestBlog(6);
         $latest_event=EventData::getLatestEvent(6);
-        $pupular_company=CompanyData::getRandomCompany(10);
+        $company=Company::all();
+        $sortedcompany=CompanyData::getCustomCompany($company);
+        $pupular_company=array_slice($sortedcompany, 0, 10);
 //        return $subcategorydata;
         return view('user.index')->with([
             'websiteinfo'=>$website_info,

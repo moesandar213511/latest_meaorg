@@ -1,22 +1,15 @@
-﻿Website Information
-===========
-About
-history
-Vision
-Mission
-
-
-
+﻿
 to do
 ====
 nab scroll hide
 
 
 home page-> sub category မွာ total ျပင္ရန္
-
+edit member profile in 
 
 
 
 requirement
 ==========
-blog& event at least 2
+blog& event at least 4 for footer
+at least company 10 for home page

@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="logo-area" style="padding-top: 10px!important;">
-                    <a href="{{url('/')}}l" style="font-size: 22px!important;font-weight: bold; color: #0a3!important">{{$websiteinfo['website_name']}}</a>
+                    <a href="{{url('/')}}" style="font-size: 22px!important;font-weight: bold; color: #0a3!important">{{$websiteinfo['website_name']}}</a>
                 </div>
                 <div class="col-lg-8">
                     <div class="custom-navbar">

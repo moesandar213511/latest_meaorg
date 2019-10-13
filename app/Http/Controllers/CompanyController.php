@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Member;
+use App\User;
 use Illuminate\Http\Request;
 use App\Company;
 use App\Gallery;
@@ -20,11 +22,23 @@ class CompanyController extends Controller
     public function index()
     {
         $subcategory = SubCategory::all();
+        $user=User::where('type','member')->get();
+        $member=[];
+        foreach ($user as $data){
+            $m=Member::find($data->member_id);
+            array_push($member,$m);
+        }
 
         return view('admin.site_admin.member.company')->with([
             'url' => 'company',
-            'subcategories'=>$subcategory
+            'subcategories'=>$subcategory,
+            'member'=>$member
         ]);
+
+    }
+
+    public function admin_company(){
+
     }
 
     /**
@@ -45,13 +59,13 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $member_id = Auth::user()->id;
+        //$member_id = Auth::user()->id;
         $file = $request->file('logo');
         $fileName = uniqid() . '_' . $file->getClientOriginalName();
         $file->move(public_path() . '/upload/logo/', $fileName);
 
         $company_id = Company::create([
-            'member_id' => $member_id,
+            'member_id' => $request->get('member_id'),
             'logo' => $fileName,
             'name' => $request->get('name'),
             'sub_category_id' => $request->get('sub_category'),
@@ -64,18 +78,20 @@ class CompanyController extends Controller
             'why-join-us' => $request->get('why-join-us'),
             'vision' => $request->get('vision'),
             'mission' => $request->get('mission'),
-            'about-us' => $request->get('about-us')
+            'about-us' => $request->get('about-us'),
+            'type'=>$request->get('type'),
+            'ads_date'=>$request->get('ads_date')
         ])->id;
-            
-        if ($photo = $request->file('photos')) {
-            foreach ($photo as $photo_data){
-            $photoName = uniqid() . '_' . $photo_data->getClientOriginalName();
-            $photo_data->move(public_path() . '/upload/photo/', $photoName);
-            Gallery::create([
-                'photo' => $photoName,
-                'company_id' => $company_id
-            ]);
-        }
+
+            if ($photo = $request->file('photos')) {
+                foreach ($photo as $photo_data){
+                    $photoName = uniqid() . '_' . $photo_data->getClientOriginalName();
+                    $photo_data->move(public_path() . '/upload/photo/', $photoName);
+                    Gallery::create([
+                        'photo' => $photoName,
+                        'company_id' => $company_id
+                    ]);
+                }
         }
     }
 
@@ -135,7 +151,9 @@ class CompanyController extends Controller
                 'why-join-us' => $request->get('why-join-us'),
                 'vision' => $request->get('vision'),
                 'mission' => $request->get('mission'),
-                'about-us' => $request->get('about-us')
+                'about-us' => $request->get('about-us'),
+                'type'=>$request->get('type'),
+                'ads_date'=>$request->get('ads_date')
             ]);
         }else {
             Company::findOrFail($id)->update([
@@ -150,7 +168,9 @@ class CompanyController extends Controller
                 'why-join-us' => $request->get('why-join-us'),
                 'vision' => $request->get('vision'),
                 'mission' => $request->get('mission'),
-                'about-us' => $request->get('about-us')
+                'about-us' => $request->get('about-us'),
+                'type'=>$request->get('type'),
+                'ads_date'=>$request->get('ads_date')
             ]);
         }
     }
@@ -163,29 +183,34 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        $company = Company::find($id)->delete();
-        $company_gallery = Gallery::where('company_id',$id)->delete();
+        $company = Company::find($id);
+        $company_gallery = Gallery::where('company_id',$id)->get();
 
-        // $image_path=public_path().'/upload/logo/'.$company->photo;
-        // if(file_exists($image_path)){
-        //     unlink($image_path);
-        // }
+         $image_path=public_path().'/upload/logo/'.$company->logo;
+         if(file_exists($image_path)){
+             unlink($image_path);
+         }
+////
+        foreach ($company_gallery as $item){
+            $image_path1=public_path().'/upload/photo/'.$item['photo'];
+            if(file_exists($image_path1)){
+                unlink($image_path1);
+            }
+            $item->delete();
+        }
+        $company->delete();
 
-        
-        // $image_path1=public_path().'/upload/photo/'.$company_gallery->photo;
-        // if(file_exists($image_path1)){
-        //     unlink($image_path1);
-        // }
     }
 
     public function get_all_company(){
-        $member_id = Auth::user()->id;
-        $company = Company::where('member_id',$member_id)->orderBy('id', 'desc')->get();
-        $arr = [];
-        foreach ($company as $data) {
-            $company_data = new CompanyData($data->id);
-            array_push($arr, $company_data->getCompanyData());
+        if (Auth::user()->type=='admin'){
+            $company = Company::orderBy('id', 'desc')->get();
         }
+        else{
+            $member_id = Auth::user()->id;
+            $company = Company::where('member_id',$member_id)->orderBy('id', 'desc')->get();
+        }
+        $arr = CompanyData::getCustomCompany($company);
         return json_encode($arr);
     }
 
@@ -193,7 +218,7 @@ class CompanyController extends Controller
         $company_data_obj = new CompanyData($id);
         $company_detail = $company_data_obj->getCompanyData();
         return view('admin.site_admin.member.company_detail')->with([
-            'url' => 'member',
+            'url' => 'company',
             'company_detail' => $company_detail
         ]);
     }

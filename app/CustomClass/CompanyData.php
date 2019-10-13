@@ -64,11 +64,29 @@ class CompanyData
     }
 
     public static function getCustomCompany($datas){
+        $datas=self::sort_companies_by_companytype($datas);
         $arr=[];
         foreach ($datas as $item){
             $obj=new CompanyData($item->id);
             array_push($arr,$obj->getCompanyData());
         }
+        return $arr;
+    }
+
+    private static function sort_companies_by_companytype($companies_arr){
+        $free_company=[];
+        $paid_company=[];
+        foreach ($companies_arr as $company){
+            if($company['type']=="ads"){
+                array_push($paid_company,$company);
+            }
+            else{
+                array_push($free_company,$company);
+            }
+        }
+        shuffle($free_company);
+        shuffle($paid_company);
+        $arr=array_merge($paid_company,$free_company);
         return $arr;
     }
 
