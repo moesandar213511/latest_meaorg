@@ -74,6 +74,12 @@
                             <p>Event</p>
                         </a>
                     </li>
+                    <li class="nav-item @if($url=="ads") active @endif">
+                        <a class="nav-link" href="{{url('admin/ads')}}">
+                            <i class="material-icons">event</i>
+                            <p>Ads</p>
+                        </a>
+                    </li>
                 @else
                     {{-- <li class="nav-item @if($url=="event") active @endif">
                         <a class="nav-link" href="{{url('member/event')}}">

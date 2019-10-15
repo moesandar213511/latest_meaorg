@@ -51,13 +51,13 @@
                                         No
                                     </th>
                                     <th width="18%">
+                                        Logo
+                                    </th>
+                                    <th width="18%">
                                         Name
                                     </th>
                                     <th width="18%">
                                         Main category
-                                    </th>
-                                    <th width="18%">
-                                        Logo
                                     </th>
                                     <th width="30%">Action</th>
                                     </thead>
@@ -74,7 +74,7 @@
 
         {{-- insert_model --}}
         <div class="modal fade" id="modalBox">
-            <div class="modal-dialog modal-md">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Create New Sub Category</h4>
@@ -84,29 +84,39 @@
                         <form id="insert_sub_category" enctype="multipart/form-data" class="md-form">
                             {{csrf_field()}}
                               <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" name="name" id="name" class="form-control" required>
+                                <div class="col-sm-4 imgUp">
+                                    <img src="{{asset('images/default.jpg')}}" id="image" class="imagePreview img-thumbnail">
+                                    <label class="btn btn-primary upload_btn">
+                                        Upload<input type="file" accept="image/png,image/jpeg,image/jpg" onchange="displaySelectedPhoto('upload_photo','image')" id="upload_photo" name="logo" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" required>
+                                    </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <input type="text" name="name" id="name" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="">Main Category</label>
+                                                <select name="main_category" id="category" class="form-control">
+                                                    <option value="">-- Select Main Category --</option>
+                                                    @foreach ($main_cats as $main_cat)
+                                                        <option value="{{$main_cat->id}}">{{$main_cat->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="">Main Category</label>
-                                        <select name="main_category" id="category" class="form-control">
-                                            <option value="">-- Select Main Category --</option>
-                                            @foreach ($main_cats as $main_cat)
-                                                <option value="{{$main_cat->id}}">{{$main_cat->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
+                                {{-- <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="logo">Logo</label>
                                         <input type="text" name="logo" id="logo" class="form-control" required>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <button type="submit" class="btn btn-primary pull-right" id="btn_submit">Create</button>
                             <div class="clearfix"></div>
@@ -118,7 +128,7 @@
 
         <!-- edit modal -->
         <div class="modal fade" id="edit_modalBox">
-            <div class="modal-dialog modal-md">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Edit Sub Category</h4>
@@ -131,29 +141,33 @@
                             {{csrf_field()}}
                             <div class="row">
                                 <input type="hidden" name="id" class="form-control" id="id_edit" value="">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="update_name">Name</label>
-                                        <input type="text" name="name" id="update_name" class="form-control" required>
-                                    </div>
+                                <div class="col-sm-4 imgUp">
+                                    <img src="{{asset('images/default.jpg')}}" id="imgs" class="imagePreview img-thumbnail">
+                                    <label class="btn btn-primary upload_btn">
+                                        Upload<input type="file" accept="image/png,image/jpeg,image/jpg" onchange="displaySelectedPhoto('update_photo','imgs')" id="update_photo" name="logo" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                                    </label>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="">Main Category</label>
-                                        <select name="main_category" class="form-control">
-                                            <option value="" id="update_sub_category">-- Select Main Category --</option>
-                                            @foreach ($main_cats as $main_cat)
-                                                <option value="{{$main_cat->id}}">{{$main_cat->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="update_logo">Logo</label>
-                                            <input type="text" name="logo" id="update_logo" class="form-control" required>
+                                <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="update_name">Name</label>
+                                                    <input type="text" name="name" id="update_name" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="">Main Category</label>
+                                                    <select name="main_category" class="form-control">
+                                                        <option value="" id="update_sub_category">-- Select Main Category --</option>
+                                                        @foreach ($main_cats as $main_cat)
+                                                            <option value="{{$main_cat->id}}">{{$main_cat->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                </div>
                             </div>
                              
                             <button class=" btn btn-primary" data-dismiss="modal">Close</button>
@@ -208,9 +222,9 @@
                         for(var i = 0;i<data_return.length;i++){ 
                             t.row.add([
                                 no++,
+                                '<img src="'+data_return[i]['logo_url']+'" alt="" style="width:100px;height:100px">',
                                 data_return[i]['name'],
                                 data_return[i]['main_cat_name'],
-                                data_return[i]['logo'],
                                 '<button class="btn btn-info btn-sm" onclick="edit_data('+data_return[i]['id']+')" data-target="#edit_modalBox" data-toggle="modal" data-keyboard="false" data-backdrop="static">Edit</button>'+
                                 '<button class="btn btn-danger btn-sm" onclick="delete_data('+data_return[i]['id']+')">Delete</button>'
                             ]).draw( false );
@@ -257,10 +271,10 @@
 
                         console.log(sub_cat);
                         $('#id_edit').val(sub_cat['id']);
+                        $("#imgs").attr("src", sub_cat['logo_url']);
                         $('#update_name').val(sub_cat['name']);
                         $('#update_sub_category').html(sub_cat['main_cat_name']);
                         $('#update_sub_category').val(sub_cat['main_id']);
-                        $('#update_logo').val(sub_cat['logo']);
 
                         $('#edit_modalBox').modal('show');
                     }

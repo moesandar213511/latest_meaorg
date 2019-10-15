@@ -67,6 +67,14 @@ Route::group(['middleware' => ['auth','admin']], function () {
 
     Route::get('admin/company', 'CompanyController@index');
 
+    // ads
+    Route::get('admin/ads','AdsController@index');
+    Route::post('/insert/ads','AdsController@store');
+    Route::post('/get_all_ads','AdsController@get_all_ads');
+    Route::post('/edit/ads/{id}','AdsController@edit');
+    Route::post('/update/ads','AdsController@update');
+    Route::post('/delete/ads/{id}','AdsController@destroy');
+
 });
 
 

@@ -61,10 +61,13 @@ class CategoryController extends Controller
 
     public function store_sub(Request $request)
     {
+        $logo = $request->file('logo');
+        $logoName = uniqid() . '_' . $logo->getClientOriginalName();
+        $logo->move(public_path() . '/upload/category_logo/', $logoName);
         SubCategory::create([
             'name'=>$request->get('name'),
             'main_id'=>$request->get('main_category'),
-            'logo'=>$request->get('logo')
+            'logo'=>$logoName
         ]);
     }
 
@@ -89,11 +92,26 @@ class CategoryController extends Controller
     public function update_sub(Request $request)
     {
         $id = $request->get('id');
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo');
+            $logoName = uniqid() . '_' . $logo->getClientOriginalName();
+            $logo->move(public_path() . '/upload/category_logo/', $logoName);
+            $sub_cat = SubCategory::find($id);
+            $image_path=public_path().'/upload/category_logo/'.$sub_cat->logo;
+            if(file_exists($image_path)){
+                unlink($image_path);
+            }
             SubCategory::findOrFail($id)->update([
                 'name'=>$request->get('name'),
                 'main_id'=>$request->get('main_category'),
-                'logo'=>$request->get('logo')
+                'logo'=>$logoName
             ]);
+        }else{
+            SubCategory::findOrFail($id)->update([
+                'name'=>$request->get('name'),
+                'main_id'=>$request->get('main_category')
+            ]);
+        }
     }
 
     public function destroy_sub($id)
