@@ -6,7 +6,7 @@
   -->
     <div class="logo">
         <a href="{{url('/')}}" target="_blank" class="simple-text logo-normal">
-            GHI
+            <img src="{{asset('/user/images/monlogo.jpg')}}" alt="" width="80px" height="80px;">
         </a>
     </div>
  <div class="sidebar-wrapper">
@@ -38,21 +38,21 @@
             @if(Auth::check())
             <?php $type=Auth::user()->type; ?>
                 @if($type == "admin")
-                    <li class="nav-item @if($url=="company") active @endif">
-                        <a class="nav-link" href="{{url('admin/company')}}">
-                            <i class="material-icons">person</i>
-                            <p>Company</p>
-                        </a>
-                    </li>
                     <li class="nav-item @if($url=="member") active @endif">
                         <a class="nav-link" href="{{url('admin/member')}}">
-                            <i class="material-icons">bubble_chart</i>
+                            <i class="material-icons">person</i>
                             <p>Member Account</p>
                         </a>
                     </li> 
+                    <li class="nav-item @if($url=="company") active @endif">
+                        <a class="nav-link" href="{{url('admin/company')}}">
+                            <i class="material-icons">book</i>
+                            <p>Company</p>
+                        </a>
+                    </li>
                     <li class="nav-item @if($url=="main_category") active @endif">
                         <a class="nav-link" href="{{url('admin/main_category')}}">
-                            <i class="material-icons">bubble_chart</i>
+                            <i class="material-icons">dashboard</i>
                             <p>Main Category</p>
                         </a>
                     </li> 
@@ -76,8 +76,20 @@
                     </li>
                     <li class="nav-item @if($url=="ads") active @endif">
                         <a class="nav-link" href="{{url('admin/ads')}}">
-                            <i class="material-icons">event</i>
+                            <i class="material-icons">list</i>
                             <p>Ads</p>
+                        </a>
+                    </li>
+                     <li class="nav-item @if($url=="site_info") active @endif">
+                        <a class="nav-link" href="{{url('admin/site_info')}}">
+                            <i class="material-icons">library_books</i>
+                            <p>Site Info</p>
+                        </a>
+                    </li>
+                     <li class="nav-item @if($url=="contact_list") active @endif">
+                        <a class="nav-link" href="{{url('admin/contact_list')}}">
+                            <i class="material-icons">content_paste</i>
+                            <p>Contact List</p>
                         </a>
                     </li>
                 @else
@@ -89,8 +101,14 @@
                     </li> --}}
                     <li class="nav-item @if($url=="company") active @endif">
                         <a class="nav-link" href="{{url('member/company')}}">
-                            <i class="material-icons">person</i>
+                            <i class="material-icons">book</i>
                             <p>Company</p>
+                        </a>
+                    </li>
+                     <li class="nav-item @if($url=="member_profile") active @endif">
+                        <a class="nav-link" href="{{url('member/profile')}}">
+                            <i class="material-icons">person</i>
+                            <p>Member Profile</p>
                         </a>
                     </li>
                 @endif

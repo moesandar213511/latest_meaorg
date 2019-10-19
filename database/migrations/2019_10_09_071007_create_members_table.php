@@ -20,6 +20,10 @@ class CreateMembersTable extends Migration
             $table->text('address');
             $table->string('education');
             $table->text('detail');
+            $table->string('photo');
+            $table->string('fb_link');
+            $table->string('tw_link');
+            $table->string('in_link');
             $table->timestamps();
         });
     }

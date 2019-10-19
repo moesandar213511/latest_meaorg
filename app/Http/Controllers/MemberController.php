@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Member;
 use App\CustomClass\MemberData;
 use App\User;
+use App\WebSiteInfo;
+use Auth;
 
 class MemberController extends Controller
 {
@@ -54,7 +56,10 @@ class MemberController extends Controller
                 'phone' => $request->get('phone'),
                 'address' => $request->get('address'),
                 'education' => $request->get('education'),
-                'detail' => $request->get('detail')
+                'detail' => $request->get('detail'),
+                'fb_link' => $request->get('facebook'),
+                'tw_link' => $request->get('twitter'),
+                'in_link' => $request->get('instagram')
             ])->id;
              
             User::create([
@@ -116,7 +121,10 @@ class MemberController extends Controller
                 'phone' => $request->get('phone'),
                 'address' => $request->get('address'),
                 'education' => $request->get('education'),
-                'detail' => $request->get('detail')
+                'detail' => $request->get('detail'),
+                'fb_link' => $request->get('facebook'),
+                'tw_link' => $request->get('twitter'),
+                'in_link' => $request->get('instagram')
             ]);
         } else {
             Member::findOrFail($id)->update([
@@ -125,7 +133,10 @@ class MemberController extends Controller
                 'phone' => $request->get('phone'),
                 'address' => $request->get('address'),
                 'education' => $request->get('education'),
-                'detail' => $request->get('detail')
+                'detail' => $request->get('detail'),
+                'fb_link' => $request->get('facebook'),
+                'tw_link' => $request->get('twitter'),
+                'in_link' => $request->get('instagram')
             ]);
         }
     }
@@ -158,5 +169,54 @@ class MemberController extends Controller
             'url' => 'member',
             'member_detail' => $member_detail
         ]);
+    }
+    public function member_profile()
+    {
+        $web_info = WebSiteInfo::all();
+        $member_id = Auth::user()->member_id;
+        $member_data = Member::where('id', $member_id)->first();
+        // return $member_data;
+        return view('admin.site_admin.member.member_profile')->with([
+            'url' => 'member_profile',
+            'member_data' => $member_data,
+            'web_info' => $web_info
+        ]);
+    }
+    public function update_profile(Request $request)
+    {
+        $id = $request->get('id');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image_name = uniqid() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('upload/member/'), $image_name);
+            $member = Member::find($id);
+            $image_path = public_path() . '/upload/member/' . $member->photo;
+            if (file_exists($image_path)) {
+                unlink($image_path);
+            }
+            Member::findOrFail($id)->update([
+                'photo' => $image_name,
+                'name' => $request->get('name'),
+                'phone' => $request->get('phone'),
+                'address' => $request->get('address'),
+                'education' => $request->get('education'),
+                'detail' => $request->get('detail'),
+                'fb_link' => $request->get('facebook'),
+                'tw_link' => $request->get('twitter'),
+                'in_link' => $request->get('instagram')
+            ]);
+        } else {
+            Member::findOrFail($id)->update([
+                'name' => $request->get('name'),
+                'phone' => $request->get('phone'),
+                'address' => $request->get('address'),
+                'education' => $request->get('education'),
+                'detail' => $request->get('detail'),
+                'fb_link' => $request->get('facebook'),
+                'tw_link' => $request->get('twitter'),
+                'in_link' => $request->get('instagram')
+            ]);
+        }
+        return redirect('member/profile');
     }
 }

@@ -9,6 +9,8 @@ use App\Event;
 use App\Gallery;
 use App\MainCategory;
 use App\Member;
+use App\WebSiteInfo;
+use App\Ads;
 use App\CustomClass\BlogData;
 use App\CustomClass\CompanyData;
 use App\CustomClass\EventData;
@@ -21,6 +23,7 @@ use Illuminate\Http\Request;
 class UIController extends Controller
 {
     public function index(){
+        $ads_photo = Ads::all();
         $website_info=WebSiteInfoData::getWebSiteInfo();
         $subcategory=SubCategory::paginate(8);
         $subcategorydata=SubcategoryData::getCustomLimitSubCategory($subcategory);
@@ -42,7 +45,8 @@ class UIController extends Controller
             'popular_company'=>$popular_company,
             'main_categories'=>$main_categories,
             'default_sub_categories'=>$default_sub_categories,
-            'page'=>'home'
+            'page'=>'home',
+            'ads_photo' => $ads_photo
         ]);
     }
     public function company_list(){
@@ -236,5 +240,53 @@ class UIController extends Controller
              'event'=>$event,
              'page'=>'event'
          ]);
+    }
+    public function search_event(Request $request)
+    {
+        $website_info = WebSiteInfoData::getWebSiteInfo();
+        $web_info = WebSiteInfo::all();
+        $latest_news = BlogData::getLatestBlog(6);
+        $latest_event = EventData::getLatestEvent(6);
+
+        $search_event = $request->get('search_event');
+        $search_events = Event::where('title', 'LIKE', "%$search_event%")->get();
+        $search_event_arr = [];
+        foreach ($search_events as $data) {
+            $search_events_data = new EventData($data->id);
+            array_push($search_event_arr, $search_events_data->getEventData());
+        }
+        // return $search_event_arr;
+        return view('user.search_event')->with([
+            'websiteinfo' => $website_info,
+            'latest_news' => $latest_news,
+            'web_info' => $web_info,
+            'latest_event' => $latest_event,
+            'search_event_arr' => $search_event_arr,
+            'page' => 'home'
+        ]);
+    }
+    public function search_blog(Request $request)
+    {
+        $website_info = WebSiteInfoData::getWebSiteInfo();
+        $web_info = WebSiteInfo::all();
+        $latest_news = BlogData::getLatestBlog(6);
+        $latest_event = EventData::getLatestEvent(6);
+
+        $search_blog = $request->get('search_blog');
+        $search_blogs = Blog::where('name', 'LIKE', "%$search_blog%")->get();
+        $search_blog_arr = [];
+        foreach ($search_blogs as $data) {
+            $search_blogs_data = new BlogData($data->id);
+            array_push($search_blog_arr, $search_blogs_data->getBlogData());
+        }
+        // return $search_blog_arr;
+        return view('user.search_blog')->with([
+            'websiteinfo' => $website_info,
+            'latest_news' => $latest_news,
+            'web_info' => $web_info,
+            'latest_event' => $latest_event,
+            'search_blog_arr' => $search_blog_arr,
+            'page' => 'home'
+        ]);
     }
 }

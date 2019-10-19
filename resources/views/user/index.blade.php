@@ -4,7 +4,26 @@
 @endsection
 
 @section('content')
-     <section class="">
+<style>
+    .single-job .job-btn .job-btn1 {
+    margin-right: -40px;
+}
+@media(min-width: 1200px) and (min-width: 1200px){
+    .nice-select{
+    width: 220px!important;
+    }
+    .search-bg form input {
+        width: 240px!important;
+    }
+}
+@media(max-width: 991px){
+    .custom-slide{
+       margin-top: 70px!important;   
+        }
+    }
+
+</style>
+    <section class="custom-slide">
         <div class="">
             <div class="">
                 <div class=" ">
@@ -55,7 +74,7 @@
                             </select>
                             <input type="text" id="keyword" name="keyword" placeholder="Search Keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'" required>
                            {{--<button type="submit" class="template-btn">Search</button>--}}
-                            <input type="submit" class="template-btn" value="Searchd">
+                            <input type="submit" class="template-btn" value="Search">
                         </form>
                     </div>
                 </div>
@@ -106,7 +125,7 @@
                     <h3 class="h4">
                         Vision
                     </h3>
-                    <p>{!! $websiteinfo['mission'] !!}</p>
+                    <p>{!! $websiteinfo['vision'] !!}</p>
                 </div>
             </div>
         </section>
@@ -152,11 +171,72 @@
                 </div>
             </div>
             <div class="row">
+                {{-- <======Start Blog[0]====> --}}
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="edu2_event_des">
-                                <h4>Dec</h4>
+                                @php
+                                    $date_time = $latest_news[0]['created_at'];
+                                        $blog0_date = substr($date_time,0,10);
+                                        $month = substr($blog0_date,5,3);
+
+                                        switch ($month) {
+                                            case '01-':
+                                                echo "Jan";
+                                                break;
+
+                                            case '02-':
+                                                echo "Feb";
+                                                break;
+
+                                            case '03-':
+                                                echo "Mar";
+                                                break;
+
+                                            case '04-':
+                                                echo "Apri";
+                                                break;
+
+                                            case '05-':
+                                                echo "May";
+                                                break;
+
+                                            case '06-':
+                                                echo "Jun";
+                                                break;
+
+                                            case '07-':
+                                                echo "Jul";
+                                                break;
+
+                                            case '08-':
+                                                echo "Aug";
+                                                break;
+
+                                            case '09-':
+                                                echo "Sep";
+                                                break;
+
+                                            case '10-':
+                                                echo "Oct";
+                                                break;
+
+                                            case '11-':
+                                                echo "Nov";
+                                                break;
+
+                                            case '12-':
+                                                echo "Dec";
+                                                break;
+
+                                            default:
+
+                                                break;
+                                        }
+                                        @endphp
+                                <br><br>
+                                {{-- <h4>{{substr($date,5,2)}}</h4> --}}
                                 <p>{!! $latest_news[0]['name'] !!}</p>
                                 <ul class="post-option text-left">
                                     <li>"By"<a href="#">Admin</a></li>
@@ -164,199 +244,616 @@
                                     {{--<li>21 comments</li>--}}
                                 </ul>
                                 <a href="{{url('/blog/'.$latest_news[0]['id'])}}" class="secondary-btn">Read More</a>
-                                <span>26</span>
+                                <span>{{substr($blog0_date,8)}}</span>
                             </div>
                         </div>
+                        
                         <div class="col-md-6">
-                            <img src="{{$latest_news[0]['photo_url']}}">
+                            <img src="{{$latest_news[0]['photo_url']}}" width="200px" height="200px">
                         </div>
                     </div>
                 </div>
+                {{-- <======End Blog[0]====> --}}
+
+                {{-- <======Start Blog[1]====> --}}
                 <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="{{$latest_news[1]['photo_url']}}">
+                                <img src="{{$latest_news[1]['photo_url']}}" width="200px" height="200px">
                             </div>
                             <div class="col-md-6">
                                 <div class="edu2_event_des text-right">
-                                    <h4>Dec</h4>
+                                    @php
+                                    $date_time = $latest_news[1]['created_at'];
+                                        $blog1_date = substr($date_time,0,10);
+                                        $month = substr($blog1_date,5,3);
+                                        
+                                        switch ($month) {
+                                            case '01-':
+                                                echo "Jan";
+                                                break;
+
+                                            case '02-':
+                                                echo "Feb";
+                                                break;
+
+                                            case '03-':
+                                                echo "Mar";
+                                                break;
+
+                                            case '04-':
+                                                echo "Apri";
+                                                break;
+
+                                            case '05-':
+                                                echo "May";
+                                                break;
+
+                                            case '06-':
+                                                echo "Jun";
+                                                break;
+
+                                            case '07-':
+                                                echo "Jul";
+                                                break;
+
+                                            case '08-':
+                                                echo "Aug";
+                                                break;
+
+                                            case '09-':
+                                                echo "Sep";
+                                                break;
+
+                                            case '10-':
+                                                echo "Oct";
+                                                break;
+
+                                            case '11-':
+                                                echo "Nov";
+                                                break;
+
+                                            case '12-':
+                                                echo "Dec";
+                                                break;
+
+                                            default:
+
+                                                break;
+                                        }
+                                        @endphp
+                                    <br><br>
+                                    {{-- <h4>Dec</h4> --}}
                                     <p>{{$latest_news[1]['name']}}</p>
                                     <ul class="post-option text-right">
                                         <li>"By"<a href="#">Admin</a></li>
-                                        <li>{!! substr($latest_news[0]['created_at'],0,10) !!}</li>
-                                        {{--<li>21 comments</li>--}}
+                                        <li>{!! substr($latest_news[1]['created_at'],0,10) !!}</li>
                                     </ul>
                                     <a href="{{url('blog/'.$latest_news[1]['id'])}}" class="secondary-btn">Read More</a>
-                                    <span>26</span>
+                                    <span>{{substr($blog1_date,8)}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                {{-- <=====End Blog[1]====> --}}
             </div>
             <br><br>
+            
             <div class="row">
+                {{-- <======Start Event[0]======> --}}
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="edu2_event_des">
-                                <h4>Dec</h4>
+                                @php
+                                    $date_time = $latest_event[0]['date'];
+                                        $event0_date = substr($date_time,0,10);
+                                        $month = substr($event0_date,5,3);
+                                        
+                                        switch ($month) {
+                                            case '01-':
+                                                echo "Jan";
+                                                break;
+
+                                            case '02-':
+                                                echo "Feb";
+                                                break;
+
+                                            case '03-':
+                                                echo "Mar";
+                                                break;
+
+                                            case '04-':
+                                                echo "Apri";
+                                                break;
+
+                                            case '05-':
+                                                echo "May";
+                                                break;
+
+                                            case '06-':
+                                                echo "Jun";
+                                                break;
+
+                                            case '07-':
+                                                echo "Jul";
+                                                break;
+
+                                            case '08-':
+                                                echo "Aug";
+                                                break;
+
+                                            case '09-':
+                                                echo "Sep";
+                                                break;
+
+                                            case '10-':
+                                                echo "Oct";
+                                                break;
+
+                                            case '11-':
+                                                echo "Nov";
+                                                break;
+
+                                            case '12-':
+                                                echo "Dec";
+                                                break;
+
+                                            default:
+
+                                                break;
+                                        }
+                                        @endphp
+                                    <br><br>
+                                {{-- <h4>Dec</h4> --}}
                                 <p>{{$latest_event[0]['title']}}</p>
-                                <ul class="post-option">
+                                <ul class="post-option text-left">
                                     <li>"By"<a href="#">Admin</a></li>
-                                    <li>{{substr($latest_event[0]['created_at'],0,10)}}</li>
-                                    <li>21 comments</li>
+                                    <li>{{substr($latest_event[0]['date'],0,10)}}</li>
+                                    {{-- <li>21 comments</li> --}}
                                 </ul>
                                 <a href="{{url('event/'.$latest_event[0]['id'])}}" class="secondary-btn">Read More</a>
-                                <span>26</span>
+                                <span>{{substr($event0_date,8)}}</span>                                                              
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <img src="{{$latest_event[0]['photo_url']}}">
+                            <img src="{{$latest_event[0]['photo_url']}}" width="200px" height="200px">
                         </div>
                     </div>
                 </div>
+                 {{-- <=====End  Event[0]====> --}}
+
+                {{-- <======Start Event[1]======> --}} 
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="{{$latest_event[1]['photo_url']}}">
+                            <img src="{{$latest_event[1]['photo_url']}}" width="200px" height="200px">
                         </div>
                         <div class="col-md-6">
                             <div class="edu2_event_des text-right">
-                                <h4>Dec</h4>
+                                @php
+                                    $date_time = $latest_event[1]['date'];
+                                        $event1_date = substr($date_time,0,10);
+                                        $month = substr($event1_date,5,3);
+                                        
+                                        switch ($month) {
+                                            case '01-':
+                                                echo "Jan";
+                                                break;
+
+                                            case '02-':
+                                                echo "Feb";
+                                                break;
+
+                                            case '03-':
+                                                echo "Mar";
+                                                break;
+
+                                            case '04-':
+                                                echo "Apri";
+                                                break;
+
+                                            case '05-':
+                                                echo "May";
+                                                break;
+
+                                            case '06-':
+                                                echo "Jun";
+                                                break;
+
+                                            case '07-':
+                                                echo "Jul";
+                                                break;
+
+                                            case '08-':
+                                                echo "Aug";
+                                                break;
+
+                                            case '09-':
+                                                echo "Sep";
+                                                break;
+
+                                            case '10-':
+                                                echo "Oct";
+                                                break;
+
+                                            case '11-':
+                                                echo "Nov";
+                                                break;
+
+                                            case '12-':
+                                                echo "Dec";
+                                                break;
+
+                                            default:
+
+                                                break;
+                                        }
+                                        @endphp
+                                    <br><br>
+                                {{-- <h4>Dec</h4> --}}
                                 <p>{{$latest_event[1]['title']}}</p>
-                                <ul class="post-option">
+                                <ul class="post-option text-right">
                                     <li>"By"<a href="#">Admin</a></li>
-                                    <li>{{substr($latest_event[1]['created_at'],0,10)}}</li>
-                                    <li>21 comments</li>
+                                    <li>{{substr($latest_event[1]['date'],0,10)}}</li>
+                                    {{-- <li>21 comments</li> --}}
                                 </ul>
                                 <a href="{{url('event/'.$latest_event[1]['id'])}}" class="secondary-btn">Read More</a>
-                                <span>26</span>
+                                 <span>{{substr($event1_date,8)}}</span>   
                             </div>
                         </div>
                     </div>
                 </div>
+                 {{-- <=====End  Event[1]====> --}}
             </div>
 
         </div>
     </section>
    <br><br>
+   
+   <section class="bb">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="jobs-title">
+                        <h2 style="text-align: center;">Latest News & Event</h2>
+                    </div>
+                </div>
+            </div>
 
-   {{--<section class="bb">--}}
-        {{--<div class="container">--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-lg-12">--}}
-                    {{--<div class="jobs-title">--}}
-                        {{--<h2 style="text-align: center;">Latest News & Event</h2>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12">--}}
-                    {{--<div class="row">--}}
-                        {{--<div class="col-md-12">--}}
-                            {{--<div class="text-center cc">--}}
-                                {{--<img src="{{asset('assets/images/new-1.jpg')}}" width="100%">--}}
-                                {{--<h1> Dec <small style="font-size: 16px;">26 <sup class="text-lowercase">th</sup></small></h1>--}}
-                                {{--<p>Lorem Lipsum Proin Gravide Nibh Vel Velit</p>--}}
-                                {{--<ul class="post-option text-center">--}}
-                                    {{--<li>"By"<a href="#">Admin</a></li>--}}
-                                    {{--<li>03/12/2015</li>--}}
-                                    {{--<li>21 comments</li>--}}
-                                {{--</ul>--}}
-                                {{--<a href="#" class="secondary-btn">Read More</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<br>--}}
-            {{----}}
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12">--}}
-                    {{--<div class="row">--}}
-                        {{--<div class="col-md-12">--}}
-                            {{--<div class="text-center cc">--}}
-                                {{--<img src="{{asset('user/images/new-1.jpg')}}" width="100%">--}}
-                                {{--<h1> Dec <small style="font-size: 16px;">26 <sup class="text-lowercase">th</sup></small></h1>--}}
-                                {{--<p>Lorem Lipsum Proin Gravide Nibh Vel Velit</p>--}}
-                                {{--<ul class="post-option text-center">--}}
-                                    {{--<li>"By"<a href="#">Admin</a></li>--}}
-                                    {{--<li>03/12/2015</li>--}}
-                                    {{--<li>21 comments</li>--}}
-                                {{--</ul>--}}
-                                {{--<a href="#" class="secondary-btn">Read More</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<br>--}}
+            {{-- <======Start blog[0] for mobile======> --}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center cc">
+                                <img src="{{$latest_news[0]['photo_url']}}" width="100%">
+                                @php
+                                    $date_time = $latest_news[1]['created_at'];
+                                        $blog1_date = substr($date_time,0,10);
+                                        $month = substr($blog1_date,5,3);
+                                        
+                                        switch ($month) {
+                                            case '01-':
+                                                echo "Jan";
+                                                break;
 
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12">--}}
-                    {{--<div class="row">--}}
-                        {{--<div class="col-md-12">--}}
-                            {{--<div class="text-center cc">--}}
-                                {{--<img src="{{asset('user/images/new-1.jpg')}}" width="100%">--}}
-                                {{--<h1> Dec <small style="font-size: 16px;">26 <sup class="text-lowercase">th</sup></small></h1>--}}
-                                {{--<p>Lorem Lipsum Proin Gravide Nibh Vel Velit</p>--}}
-                                {{--<ul class="post-option text-center">--}}
-                                    {{--<li>"By"<a href="#">Admin</a></li>--}}
-                                    {{--<li>03/12/2015</li>--}}
-                                    {{--<li>21 comments</li>--}}
-                                {{--</ul>--}}
-                                {{--<a href="#" class="secondary-btn">Read More</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<br>--}}
+                                            case '02-':
+                                                echo "Feb";
+                                                break;
 
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12">--}}
-                    {{--<div class="row">--}}
-                        {{--<div class="col-md-12">--}}
-                            {{--<div class="text-center cc">--}}
-                                {{--<img src="{{asset('user/images/new-1.jpg')}}" width="100%">--}}
-                                {{--<h1> Dec <small style="font-size: 16px;">26 <sup class="text-lowercase">th</sup></small></h1>--}}
-                                {{--<p>Lorem Lipsum Proin Gravide Nibh Vel Velit</p>--}}
-                                {{--<ul class="post-option text-center">--}}
-                                    {{--<li>"By"<a href="#">Admin</a></li>--}}
-                                    {{--<li>03/12/2015</li>--}}
-                                    {{--<li>21 comments</li>--}}
-                                {{--</ul>--}}
-                                {{--<a href="#" class="secondary-btn">Read More</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<br>--}}
+                                            case '03-':
+                                                echo "Mar";
+                                                break;
 
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12">--}}
-                    {{--<div class="row">--}}
-                        {{--<div class="col-md-12">--}}
-                            {{--<div class="text-center cc">--}}
-                                {{--<img src="{{asset('user/images/new-1.jpg')}}" width="100%">--}}
-                                {{--<h1> Dec <small style="font-size: 16px;">26 <sup class="text-lowercase">th</sup></small></h1>--}}
-                                {{--<p>Lorem Lipsum Proin Gravide Nibh Vel Velit</p>--}}
-                                {{--<ul class="post-option text-center">--}}
-                                    {{--<li>"By"<a href="#">Admin</a></li>--}}
-                                    {{--<li>03/12/2015</li>--}}
-                                    {{--<li>21 comments</li>--}}
-                                {{--</ul>--}}
-                                {{--<a href="#" class="secondary-btn">Read More</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<br>--}}
-        {{--</div>--}}
-    {{--</section>--}}
-   {{--<br><br>--}}
+                                            case '04-':
+                                                echo "Apri";
+                                                break;
+
+                                            case '05-':
+                                                echo "May";
+                                                break;
+
+                                            case '06-':
+                                                echo "Jun";
+                                                break;
+
+                                            case '07-':
+                                                echo "Jul";
+                                                break;
+
+                                            case '08-':
+                                                echo "Aug";
+                                                break;
+
+                                            case '09-':
+                                                echo "Sep";
+                                                break;
+
+                                            case '10-':
+                                                echo "Oct";
+                                                break;
+
+                                            case '11-':
+                                                echo "Nov";
+                                                break;
+
+                                            case '12-':
+                                                echo "Dec";
+                                                break;
+
+                                            default:
+
+                                                break;
+                                        }
+                                        @endphp
+                                    <br>
+                                <small style="font-size: 16px;">{{substr($blog0_date,8)}}<sup class="text-lowercase"></sup></small>
+                                <p>{!! $latest_news[0]['name'] !!}</p>
+                                <ul class="post-option text-center">
+                                    <li>"By"<a href="#">Admin</a></li>
+                                    <li>{!! substr($latest_news[0]['created_at'],0,10) !!}</li>
+                                </ul>
+                                <a href="{{url('/blog/'.$latest_news[0]['id'])}}" class="secondary-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            {{-- <======End blog[0] for mobile======> --}}
+            
+            {{-- <======Start blog[1] for mobile======> --}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center cc">
+                               <img src="{{$latest_news[1]['photo_url']}}" width="100%">
+                               @php
+                                    $date_time = $latest_news[1]['created_at'];
+                                        $blog1_date = substr($date_time,0,10);
+                                        $month = substr($blog1_date,5,3);
+                                        
+                                        switch ($month) {
+                                            case '01-':
+                                                echo "Jan";
+                                                break;
+
+                                            case '02-':
+                                                echo "Feb";
+                                                break;
+
+                                            case '03-':
+                                                echo "Mar";
+                                                break;
+
+                                            case '04-':
+                                                echo "Apri";
+                                                break;
+
+                                            case '05-':
+                                                echo "May";
+                                                break;
+
+                                            case '06-':
+                                                echo "Jun";
+                                                break;
+
+                                            case '07-':
+                                                echo "Jul";
+                                                break;
+
+                                            case '08-':
+                                                echo "Aug";
+                                                break;
+
+                                            case '09-':
+                                                echo "Sep";
+                                                break;
+
+                                            case '10-':
+                                                echo "Oct";
+                                                break;
+
+                                            case '11-':
+                                                echo "Nov";
+                                                break;
+
+                                            case '12-':
+                                                echo "Dec";
+                                                break;
+
+                                            default:
+
+                                                break;
+                                        }
+                                        @endphp
+                                    <br>
+                                 <small style="font-size: 16px;">{{substr($blog1_date,8)}}<sup class="text-lowercase"></sup></small>
+                                <p>{{$latest_news[1]['name']}}</p>
+                                <ul class="post-option text-center">
+                                    <li>"By"<a href="#">Admin</a></li>
+                                    <li>{!! substr($latest_news[0]['created_at'],0,10) !!}</li>
+                                    {{-- <li>21 comments</li> --}}
+                                </ul>
+                                <a href="{{url('blog/'.$latest_news[1]['id'])}}" class="secondary-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            {{-- <======End blog[1] for mobile======> --}}
+
+            {{-- <======End event[0] for mobile======> --}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center cc">
+                                <img src="{{$latest_event[0]['photo_url']}}" width="100%">
+                                @php
+                                    $date_time = $latest_event[0]['date'];
+                                        $event0_date = substr($date_time,0,10);
+                                        $month = substr($event0_date,5,3);
+                                        
+                                        switch ($month) {
+                                            case '01-':
+                                                echo "Jan";
+                                                break;
+
+                                            case '02-':
+                                                echo "Feb";
+                                                break;
+
+                                            case '03-':
+                                                echo "Mar";
+                                                break;
+
+                                            case '04-':
+                                                echo "Apri";
+                                                break;
+
+                                            case '05-':
+                                                echo "May";
+                                                break;
+
+                                            case '06-':
+                                                echo "Jun";
+                                                break;
+
+                                            case '07-':
+                                                echo "Jul";
+                                                break;
+
+                                            case '08-':
+                                                echo "Aug";
+                                                break;
+
+                                            case '09-':
+                                                echo "Sep";
+                                                break;
+
+                                            case '10-':
+                                                echo "Oct";
+                                                break;
+
+                                            case '11-':
+                                                echo "Nov";
+                                                break;
+
+                                            case '12-':
+                                                echo "Dec";
+                                                break;
+
+                                            default:
+
+                                                break;
+                                        }
+                                        @endphp
+                                    <br>
+                                <small style="font-size: 16px;">{{substr($event0_date,8)}}<sup class="text-lowercase"></sup></small>
+                                <p>{{$latest_event[0]['title']}}</p>
+                                <ul class="post-option text-center">
+                                    <li>"By"<a href="#">Admin</a></li>
+                                    <li>{{substr($latest_event[0]['date'],0,10)}}</li>
+                                </ul>
+                                <a href="{{url('event/'.$latest_event[0]['id'])}}" class="secondary-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            {{-- <======End event[0] for mobile======> --}}
+
+            {{-- <======End event[1] for mobile======> --}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center cc">
+                                <img src="{{$latest_event[1]['photo_url']}}" width="100%">
+                                @php
+                                    $date_time = $latest_event[1]['date'];
+                                        $event1_date = substr($date_time,0,10);
+                                        $month = substr($event1_date,5,3);
+                                        
+                                        switch ($month) {
+                                            case '01-':
+                                                echo "Jan";
+                                                break;
+
+                                            case '02-':
+                                                echo "Feb";
+                                                break;
+
+                                            case '03-':
+                                                echo "Mar";
+                                                break;
+
+                                            case '04-':
+                                                echo "Apri";
+                                                break;
+
+                                            case '05-':
+                                                echo "May";
+                                                break;
+
+                                            case '06-':
+                                                echo "Jun";
+                                                break;
+
+                                            case '07-':
+                                                echo "Jul";
+                                                break;
+
+                                            case '08-':
+                                                echo "Aug";
+                                                break;
+
+                                            case '09-':
+                                                echo "Sep";
+                                                break;
+
+                                            case '10-':
+                                                echo "Oct";
+                                                break;
+
+                                            case '11-':
+                                                echo "Nov";
+                                                break;
+
+                                            case '12-':
+                                                echo "Dec";
+                                                break;
+
+                                            default:
+
+                                                break;
+                                        }
+                                        @endphp
+                                    <br>
+                                <small style="font-size: 16px;">{{substr($event1_date,8)}}<sup class="text-lowercase"></sup></small>
+                                <p>{{$latest_event[1]['title']}}</p>
+                                <ul class="post-option text-center">
+                                    <li>"By"<a href="#">Admin</a></li>
+                                    <li>{{substr($latest_event[1]['date'],0,10)}}</li>
+                                </ul>
+                                <a href="{{url('event/'.$latest_event[1]['id'])}}" class="secondary-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            {{-- <======End event[1] for mobile======> --}}
+
+        </div>
+    </section>
+   <br><br>
+
     <!-- Jobs Area Starts -->
     <section class="jobs-area section-padding3">
         <div class="container">
@@ -375,13 +872,15 @@
                             @foreach($popular_company as $item)
                             <div class="single-job mb-4 d-lg-flex justify-content-between">
                                 <div class="job-img align-self-center">
-                                    <img src="{{$item['photo_url']}}" alt="job" style="max-width:200px">
+                                     <div>
+                                        <img src="{{$item['photo_url']}}" alt="job" width="100px" height="100px;" class="img-responsive">
+                                    </div>
                                 </div>
                                 <div class="job-text">
                                     <h4>{{$item['name']}}</h4>
                                     <h5>{{$item['subcategory_name']}}</h5>
                                     <ul class="mt-4">
-                                        <li class="mb-3"><h5><i class="fa fa-envelope"></i> {{$item['email']}}, <i class="fa fa-phone"></i> {{$item['phone']}}</h5></li>
+                                        <li class="mb-3"><i class="fa fa-envelope"></i> {{$item['email']}}, <i class="fa fa-phone"></i> {{$item['phone']}}</<i></li>
                                     </ul>
                                 </div>
                                 <div class="job-btn align-self-center">
@@ -393,7 +892,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="row main-content">
+                    {{-- <div class="row main-content">
                         <div class="col-md-12">
                         <img src="{{asset('user/images/ad.jpg')}}" alt="" width="100%">
                         </div>
@@ -403,7 +902,15 @@
                         <div class="col-md-12">
                             <img src="{{asset('user/images/ad.jpg')}}" alt="" width="100%">
                         </div>
+                    </div> --}}
+
+                    @foreach($ads_photo as $ads_photos)
+                    <div class="row main-content">
+                        <div class="col-md-12">
+                        <img src="{{asset('upload/ads/'.$ads_photos->photo)}}" alt="" width="100%" height="200px">
+                        </div>
                     </div>
+                    @endforeach
                     <br>
                     {{-- <div class="row main-content">
                         <div class="col-md-12">

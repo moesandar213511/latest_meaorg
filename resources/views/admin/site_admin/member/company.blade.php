@@ -1,5 +1,5 @@
 @extends('admin.layouts.site_admin.site_admin_design')
-
+@section('title','Admin | Company')
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
@@ -32,7 +32,7 @@
 @endsection
 
 @section('nav_bar_text')
-    Blog
+    Company List
 @endsection
 @section('content')
     <div class="content">
@@ -41,7 +41,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h3>Company List</h3>
+                            {{-- <h3>Company List</h3> --}}
                             @if(\Illuminate\Support\Facades\Auth::user()->type=="admin")
                             <button type="button" name="button" class="btn btn-success pull-right" data-target="#modalBox" data-toggle="modal" data-keyboard="false" data-backdrop="static">Add</button>
                                 @endif
@@ -173,56 +173,56 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="address
-                                            "><b>Address</b></label><br>
+                                            "><b>Address</b></label>
                                         <textarea name="address" rows="3" class="form-control" id="address" required></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="web_url
-                                            "><b>web-url</b></label><br>
+                                            "><b>web-url</b></label>
                                         <input type="text" name="web_url" class="form-control" id="web_url" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="facebook_url
-                                            "><b>facebook-url</b></label><br>
+                                            "><b>facebook-url</b></label>
                                         <input type="text" name="facebook_url" class="form-control" id="facebook_url" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="what_we_do"
-                                            "><b>what-we-do</b></label><br>
+                                            "><b>what-we-do</b></label>
                                         <textarea name="what-we-do" rows="3" class="form-control" id="what_we_do" required></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="why_join_us
-                                            "><b>why-join-us</b></label><br>
+                                            "><b>why-join-us</b></label>
                                         <textarea name="why-join-us" rows="3" class="form-control" id="why_join_us" required></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="vision
-                                            "><b>vision</b></label><br>
+                                            "><b>vision</b></label>
                                         <textarea name="vision" rows="3" class="form-control" id="vision" required></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="mission
-                                            "><b>mission</b></label><br>
+                                            "><b>mission</b></label>
                                         <textarea name="mission" rows="3" class="form-control" id="mission" required></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="about_us
-                                            "><b>about us</b></label><br>
+                                            "><b>about us</b></label>
                                         <textarea name="about-us" rows="3" class="form-control" id="about_us" required></textarea>
                                     </div>
                                 </div>
@@ -471,6 +471,7 @@
                         $('#update_sub_category').html(company['subcategory_name']);
                         $('#update_sub_category').val(company['sub_category_id']);
                         $('#update_email').val(company['email']);
+                        $('#update_phone').val(company['phone']);
                         $('#update_address').val(company['address']);
                         $('#update_web_url').val(company['web_url']);
                         $('#update_facebook_url').val(company['facebook_url']);

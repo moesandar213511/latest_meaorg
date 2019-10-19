@@ -1,5 +1,5 @@
 @extends('admin.layouts.site_admin.site_admin_design')
-
+@section('title','Admin | Sub Category')
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
@@ -222,7 +222,7 @@
                         for(var i = 0;i<data_return.length;i++){ 
                             t.row.add([
                                 no++,
-                                '<img src="'+data_return[i]['logo_url']+'" alt="" style="width:100px;height:100px">',
+                                '<img src="'+data_return[i]['logo_url']+'" alt="" style="width:70px;height:70px">',
                                 data_return[i]['name'],
                                 data_return[i]['main_cat_name'],
                                 '<button class="btn btn-info btn-sm" onclick="edit_data('+data_return[i]['id']+')" data-target="#edit_modalBox" data-toggle="modal" data-keyboard="false" data-backdrop="static">Edit</button>'+

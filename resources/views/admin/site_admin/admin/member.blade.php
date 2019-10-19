@@ -1,5 +1,5 @@
 @extends('admin.layouts.site_admin.site_admin_design')
-
+@section('title','Admin | Member')
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
@@ -145,11 +145,33 @@
                                         <input type="text" name="education" id="education" class="form-control" required>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="detail
                                             "><b>Detail</b></label><br>
                                         <textarea name="detail" id="detail" rows="2" class="form-control" required></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="fb_link
+                                            "><b>Facebook</b></label><br>
+                                        <input type="text" name="facebook" id="fb_link" class="form-control">
+                                    </div>
+                                </div>
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="tw_link
+                                            "><b>Twitter</b></label><br>
+                                        <input type="text" name="twitter" id="tw_link" class="form-control">
+                                    </div>
+                                </div>
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="in_link
+                                            "><b>Instagram</b></label><br>
+                                        <input type="text" name="instagram" id="in_link" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +201,7 @@
                                     <div class="form-group">
                                         <img src="{{asset('images/default.jpg')}}" id="imgs" class="imagePreview img-thumbnail">
                                         <label class="btn btn-primary upload_btn">
-                                        Upload<input type="file" accept="image/png,image/jpeg,image/jpg" onchange="displaySelectedPhoto('upload_img','imgs')" id="upload_img" name="image" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" required>
+                                        Upload<input type="file" accept="image/png,image/jpeg,image/jpg" onchange="displaySelectedPhoto('upload_img','imgs')" id="upload_img" name="image" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
                                     </label>
                                     </div>
                                 </div>
@@ -222,6 +244,27 @@
                                     <div class="form-group">
                                         <label for="update_detail"><b>Detail</b></label><br>
                                         <textarea name="detail" id="update_detail" rows="2" class="form-control" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="update_fb_link
+                                            "><b>Facebook</b></label><br>
+                                        <input type="text" name="facebook" id="update_fb_link" class="form-control">
+                                    </div>
+                                </div>
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="update_tw_link
+                                            "><b>Twitter</b></label><br>
+                                        <input type="text" name="twitter" id="update_tw_link" class="form-control">
+                                    </div>
+                                </div>
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="update_in_link
+                                            "><b>Instagram</b></label><br>
+                                        <input type="text" name="instagram" id="update_in_link" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -335,6 +378,9 @@
                         $('#update_address').val(member['address']);
                         $('#update_education').val(member['education']);
                         $('#update_detail').val(member['detail']);
+                        $('#update_fb_link').val(member['fb_link']);
+                        $('#update_tw_link').val(member['tw_link']);
+                        $('#update_in_link').val(member['in_link']);
                         $('#edit_modalBox').modal('show');
                     }
                 });

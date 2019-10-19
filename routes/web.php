@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('admin/member','MemberController@index');
     Route::post('admin/insert_member', 'MemberController@store');
     Route::get('admin/get_all_member', 'MemberController@get_all_member');
-    Route::get('admin/delete_member/{id}', 'MemberController@destroy');  
+    Route::get('/delete_member/{id}', 'MemberController@destroy');  
     Route::get('admin/member_detail/{id}', 'MemberController@member_detail');
     Route::get('/edit/member/{id}', 'MemberController@edit');
     Route::post('/update_member', 'MemberController@update_member'); 
@@ -75,6 +75,15 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::post('/update/ads','AdsController@update');
     Route::post('/delete/ads/{id}','AdsController@destroy');
 
+     // Contact
+    Route::get('admin/contact_list', 'ContactController@contact');
+    Route::get('admin/get_all_contact', 'ContactController@get_all_contact');
+    Route::get('admin/delete_contact/{id}', 'ContactController@delete_contact');
+    Route::get('/detail/contact/{id}', 'ContactController@detail_contact');
+
+    // Site info
+    Route::get('admin/site_info', 'ContactController@site_info');
+    Route::post('admin/update_info', 'ContactController@update_info');
 });
 
 
@@ -97,6 +106,9 @@ Route::group(['middleware' => ['auth', 'member']], function () {
     Route::get('member/company_onephoto/{id}', 'CompanyController@company_onephoto');
     Route::post('member/update_photos', 'CompanyController@update_photos');
 
+// Member Profile
+    Route::get('member/profile', 'MemberController@member_profile');
+    Route::post('member/update_profile', 'MemberController@update_profile');
 });
 
 Auth::routes();
@@ -116,6 +128,8 @@ Route::get('/event', 'UIController@event');
 Route::get('/event/{id}', 'UIController@event_single');
 Route::get('get_sub_category/{id}','Controller@get_sub_category');
 Route::get('search/company/{sub_id}/{keyword}','UIController@search_company');
+Route::post('/search_event', 'UIController@search_event');
+Route::post('/search_blog', 'UIController@search_blog');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 //contact

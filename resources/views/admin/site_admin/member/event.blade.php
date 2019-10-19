@@ -1,5 +1,5 @@
 @extends('admin.layouts.site_admin.site_admin_design')
-
+@section('title','Admin | Event')
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 

@@ -28,7 +28,6 @@ class CompanyController extends Controller
             $m=Member::find($data->member_id);
             array_push($member,$m);
         }
-
         return view('admin.site_admin.member.company')->with([
             'url' => 'company',
             'subcategories'=>$subcategory,
@@ -207,7 +206,7 @@ class CompanyController extends Controller
             $company = Company::orderBy('id', 'desc')->get();
         }
         else{
-            $member_id = Auth::user()->id;
+            $member_id = Auth::user()->member_id;
             $company = Company::where('member_id',$member_id)->orderBy('id', 'desc')->get();
         }
         $arr = CompanyData::getCustomCompany($company);
@@ -265,4 +264,3 @@ class CompanyController extends Controller
         }
     }
 }
-

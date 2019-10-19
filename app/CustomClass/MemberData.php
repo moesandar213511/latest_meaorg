@@ -23,6 +23,7 @@ class MemberData
      */
     public function getMemberData()
     {
+        $this->member_data['photo_url'] = Path::$domain_url . '/upload/member/' . $this->member_data['photo'];
         return $this->member_data;
     }
 

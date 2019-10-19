@@ -1,5 +1,5 @@
 @extends('admin.layouts.site_admin.site_admin_design')
-
+@section('title','Admin | Photos')
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
@@ -32,7 +32,7 @@
 @endsection
 
 @section('nav_bar_text')
-    Member Account Detail
+    Company Gallery
 @endsection
 @section('content')
     {{-- <div class="content">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -9,8 +9,11 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                        @csrf --}}
 
+
+
+                        {{-- <===original comment====> --}}
                         {{-- <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -24,8 +27,10 @@
                                 @enderror
                             </div>
                         </div> --}}
+                        {{-- <===end original comment====> --}}
 
-                        <div class="form-group row">
+
+                        {{-- <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -74,4 +79,6 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+
+<h1 style="text-align:center;margin-top:20%">Page Not Found</h1>
