@@ -41,7 +41,8 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <button type="button" name="button" class="btn btn-success pull-right" data-target="#modalBox" data-toggle="modal" data-keyboard="false" data-backdrop="static">Add</button>
+                            {{-- <button type="button" name="button" class="btn btn-success pull-right" data-target="#modalBox" data-toggle="modal" data-keyboard="false" data-backdrop="static">Add</button> --}}
+                            <h3>Main Category</h3>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -162,7 +163,7 @@
                     cache: false,
                     success: function(data){
                         var data_return=JSON.parse(data);
-                        console.log(data_return);
+                        // console.log(data_return);
                         t.clear();
                         var no = 1;
                         for(var i = 0;i<data_return.length;i++){ 

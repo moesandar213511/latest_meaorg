@@ -65,7 +65,7 @@
                                 {{--<option>Main Category</option>--}}
                                 @foreach($main_categories as $data)
                                     <option value="{{$data['id']}}">{{$data['name']}}</option>
-                                    @endforeach
+                                @endforeach
                             </select>
                             <select name="sub_id" id="sub_id">
                                 @foreach($default_sub_categories as $data)
@@ -148,7 +148,7 @@
                         <div class="single-category text-center mb-4">
                             <img src="{{$item['logo_url']}}" alt="category">
                             <h4>{{$item['name']}}</h4>
-                            <h5>30 Companies</h5>
+                            <h5>{{$item['total_company']}} Companies</h5>
                             <a href="{{url('category/company/'.$item['id'])}}" class="more">More Details >>></a>
                         </div>
                     </div>
@@ -176,75 +176,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="edu2_event_des">
-                                @php
-                                    $date_time = $latest_news[0]['created_at'];
-                                        $blog0_date = substr($date_time,0,10);
-                                        $month = substr($blog0_date,5,3);
-
-                                        switch ($month) {
-                                            case '01-':
-                                                echo "Jan";
-                                                break;
-
-                                            case '02-':
-                                                echo "Feb";
-                                                break;
-
-                                            case '03-':
-                                                echo "Mar";
-                                                break;
-
-                                            case '04-':
-                                                echo "Apri";
-                                                break;
-
-                                            case '05-':
-                                                echo "May";
-                                                break;
-
-                                            case '06-':
-                                                echo "Jun";
-                                                break;
-
-                                            case '07-':
-                                                echo "Jul";
-                                                break;
-
-                                            case '08-':
-                                                echo "Aug";
-                                                break;
-
-                                            case '09-':
-                                                echo "Sep";
-                                                break;
-
-                                            case '10-':
-                                                echo "Oct";
-                                                break;
-
-                                            case '11-':
-                                                echo "Nov";
-                                                break;
-
-                                            case '12-':
-                                                echo "Dec";
-                                                break;
-
-                                            default:
-
-                                                break;
-                                        }
-                                        @endphp
-                                <br><br>
-                                {{-- <h4>{{substr($date,5,2)}}</h4> --}}
-                                <p>{!! $latest_news[0]['name'] !!}</p>
-                                <ul class="post-option text-left">
-                                    <li>"By"<a href="#">Admin</a></li>
-                                    <li>{!! substr($latest_news[0]['created_at'],0,10) !!}</li>
-                                    {{--<li>21 comments</li>--}}
-                                </ul>
-                                <a href="{{url('/blog/'.$latest_news[0]['id'])}}" class="secondary-btn">Read More</a>
-                                <span>{{substr($blog0_date,8)}}</span>
+                                @include('user.function')
+                                
                             </div>
                         </div>
                         
@@ -529,9 +462,9 @@
                             <div class="text-center cc">
                                 <img src="{{$latest_news[0]['photo_url']}}" width="100%">
                                 @php
-                                    $date_time = $latest_news[1]['created_at'];
-                                        $blog1_date = substr($date_time,0,10);
-                                        $month = substr($blog1_date,5,3);
+                                    $date_time = $latest_news[0]['created_at'];
+                                        $blog0_date = substr($date_time,0,10);
+                                        $month = substr($blog0_date,5,3);
                                         
                                         switch ($month) {
                                             case '01-':
@@ -1014,7 +947,8 @@
 
             var link='{{url('search/company')}}'+'/'+sub_id+'/'+keyword;
             console.log(link);
-            window.open(link,'_self');
+            alert(link);
+           // window.open(link,'_self');
         }
     </script>
     @endsection

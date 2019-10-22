@@ -99,14 +99,21 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Main Category</label>
-                                                <select name="main_category" id="category" class="form-control">
-                                                    <option value="">-- Select Main Category --</option>
-                                                    @foreach ($main_cats as $main_cat)
-                                                        <option value="{{$main_cat->id}}">{{$main_cat->name}}</option>
-                                                    @endforeach
-                                                </select>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="">Main Category</label>
+                                                        <select name="main_category" id="category" class="form-control">
+                                                            <option value="">-- Select Main Category --</option>
+                                                            @foreach ($main_cats as $main_cat)
+                                                                <option value="{{$main_cat->id}}">{{$main_cat->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <a href="#" data-target="#modalBox2" data-toggle="modal" class="btn btn-info text-white">Create Main Category</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -121,6 +128,45 @@
                             <button type="submit" class="btn btn-primary pull-right" id="btn_submit">Create</button>
                             <div class="clearfix"></div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- insert_model --}}
+        <div class="modal fade" id="modalBox2">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Create New Main Category</h4>
+                        <button data-dismiss="modal" class="close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="insert_main_category" enctype="multipart/form-data" class="md-form">
+                            {{csrf_field()}}
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" class="form-control" required>
+                            </div>
+                            
+                            <a href="{{url('admin/main_category')}}" class="btn btn-dark pull-right" id="btn_submit">All Main Category</a>
+                            <button type="submit" class="btn btn-primary pull-right" id="btn_submit">Create</button>
+                            <div class="clearfix"></div>
+                        </form>
+
+                        {{-- <form id="insert_main_category" enctype="multipart/form-data" class="md-form">
+                            {{csrf_field()}}
+                              <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right" id="btn_submit">Create</button>
+                            <div class="clearfix"></div>
+                        </form> --}}
                     </div>
                 </div>
             </div>
@@ -206,6 +252,7 @@
                 $('#update_data')[0].reset();
             }
 
+            // main_load();
             load();
 
             function load(){
@@ -257,6 +304,55 @@
                 });
                 return false;
             });
+
+             function main_load(){
+                $.ajax({
+                    type: "get",
+                    url: "{{url('admin/get_all_main_category')}}",
+
+                    cache: false,
+                    success: function(data){
+                        var data_return=JSON.parse(data);
+                        // console.log(data_return);
+                        t.clear();
+                        var no = 1;
+                        for(var i = 0;i<data_return.length;i++){ 
+                            t.row.add([
+                                no++,
+                                data_return[i]['name'],
+                                '<button class="btn btn-info btn-sm" onclick="edit_data('+data_return[i]['id']+')" data-target="#edit_modalBox" data-toggle="modal" data-keyboard="false" data-backdrop="static">Edit</button>'+
+                                '<button class="btn btn-danger btn-sm" onclick="delete_data('+data_return[i]['id']+')">Delete</button>'
+                            ]).draw( false );
+                        }
+
+                        $('#insert_main_category')[0].reset();
+                    }
+                });
+            }
+
+            $('#insert_main_category').on('submit',function (e)
+            {
+                e.preventDefault();
+                var alldata = new FormData(this);
+                $.ajax
+                ({
+                    type: "POST",
+                    url: "{{url('admin/insert_main_category')}}",
+                    data:alldata,
+                    cache:false,
+                    processData: false,
+                    contentType: false,
+                    success: function(data){
+                        // alert('itwork');
+                        //console.log(data);
+                        $('#modalBox2').modal('hide');
+                        toastr.success('Create successful');
+                        main_load();
+                    }
+                });
+                return false;
+            });
+
 
             edit_data=function(id){
 

@@ -12,7 +12,7 @@
 */
 
 
-Route::get('test','Controller@home');
+Route::get('test','Controller@test');
 
 // For admin
 Auth::routes();

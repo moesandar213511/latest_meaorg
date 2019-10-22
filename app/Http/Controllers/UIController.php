@@ -85,6 +85,7 @@ class UIController extends Controller
     public function category_company($id){
         $website_info=WebSiteInfoData::getWebSiteInfo();
         $latest_news=BlogData::getLatestBlog(4);
+        
         $companies=Company::where('sub_category_id',$id)->paginate(10);
         $company_list=CompanyData::getCustomCompany($companies);
 
@@ -145,7 +146,6 @@ class UIController extends Controller
              'sub_category'=>$subcategorydata,
             'paginate'=>$subcategory,
              'page'=>'category'
-
 //             'page'=>'home'
          ]);
     }
@@ -262,7 +262,7 @@ class UIController extends Controller
             'web_info' => $web_info,
             'latest_event' => $latest_event,
             'search_event_arr' => $search_event_arr,
-            'page' => 'home'
+            'page' => 'event'
         ]);
     }
     public function search_blog(Request $request)
@@ -286,7 +286,7 @@ class UIController extends Controller
             'web_info' => $web_info,
             'latest_event' => $latest_event,
             'search_blog_arr' => $search_blog_arr,
-            'page' => 'home'
+            'page' => 'blog'
         ]);
     }
 }

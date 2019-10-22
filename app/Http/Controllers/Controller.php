@@ -23,7 +23,9 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     function test(){
-        return BlogData::getLatestBlog(3);
+         $total_company=DB::select('SELECT COUNT(*) AS total_company FROM `companies` WHERE sub_category_id=4');
+
+         return $total_company[0]->total_company;
 
     }
 

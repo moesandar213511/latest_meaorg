@@ -145,6 +145,37 @@
                             @endforeach
                         </div>								
                     </div>
+
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>  
                 </div>
             </div>
         </div>	

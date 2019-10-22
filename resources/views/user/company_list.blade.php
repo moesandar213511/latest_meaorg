@@ -66,7 +66,7 @@
     <section class="jobs-area section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-9">
                     @foreach($companies as $data)
                     <div class="single-job mb-4 d-lg-flex justify-content-between">
                         <div class=" col-lg-6 job-text">
@@ -88,8 +88,59 @@
                         </div>
                     </div>
                    @endforeach
+
+                   {{$paginate->links()}}
+
                 </div>
-                {{$paginate->links()}}
+                <div class="col-lg-3">
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                    <div class="row main-content">
+                         <div class="col-lg-12">
+                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
+                         </div>
+                    </div>
+                </div>
+                
+               
             </div>
             
         </div>

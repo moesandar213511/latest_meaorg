@@ -74,7 +74,7 @@
 
         {{-- insert_model --}}
         <div class="modal fade" id="modalBox">
-            <div class="modal-dialog modal-md">
+            <div class="modal-dialog modal-md" style="max-width:800px;">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Create New Member</h4>
@@ -86,16 +86,23 @@
                               <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <img src="{{asset('images/default.jpg')}}" id="image" class="imagePreview img-thumbnail">
-                                        <label class="btn btn-primary upload_btn">
+                                        <img src="{{asset('images/default.jpg')}}" id="image" class="imagePreview img-thumbnail" style="width:200px!important">
+                                        <label class="btn btn-primary upload_btn" style="width:200px;">
                                         Upload<input type="file" accept="image/png,image/jpeg,image/jpg" onchange="displaySelectedPhoto('upload_photo','image')" id="upload_photo" name="photo" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" required>
                                     </label>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" id="name" class="form-control" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                         <input type="phone" name="phone" class="form-control" id="phone" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -110,23 +117,17 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="phone">Phone</label>
-                                         <input type="phone" name="phone" class="form-control" id="phone" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
                                         <label for="email">Email</label>
                                         <input type="email" name="email" id="email" class="form-control" required>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="password">Password</label>
                                         <input type="password" name="password" id="password" class="form-control" required>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="c_password">Confirm Password</label>
                                         <input type="password" name="confirm_password" id="c_password" class="form-control" required>
@@ -136,7 +137,7 @@
                                     <div class="form-group">
                                         <label for="address
                                             "><b>Address</b></label><br>
-                                        <textarea name="address" rows="2" class="form-control" id="address" required></textarea>
+                                        <textarea name="address" rows="1" class="form-control" id="address" required></textarea>
                                     </div>
                                 </div>
                                  <div class="col-md-12">

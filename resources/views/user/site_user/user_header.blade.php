@@ -4,6 +4,7 @@
         {{--background: red!important;--}}
     {{--}--}}
 {{--</style>--}}
+
 <!-- <header class="header-area single-page">
     <div class="header-top">
         <div class="container">
@@ -38,9 +39,7 @@
           .active a {
             color: #08A8F1!important;
             font-weight:6000px;
-            border-bottom: 1px solid #fff;
-           padding: 0px;
-           margin:0px;
+            
   }
     @media(min-width: 991px){
     header li a{
@@ -61,7 +60,11 @@
         .fixed-top{
             background-color: #ffffff;
         }
-   
+        @media(max-width:991px){
+            .logo-area a img{
+                width:250px;
+            }
+        }
     </style>
 <header class="header-area main-header fixed-top">
 
@@ -81,14 +84,13 @@
                     </div>  
                     <div class="main-menu">
                         <ul>
-                            <li class="@if($page=='/') active @endif"><a href="{{url('/')}}">home</a></li>
-                            <li class="@if($page=='/about') active @endif"><a href="{{url('/about')}}">about us</a></li>
-                            <li class="@if($page=='/company') active @endif"><a href="{{url('/companies')}}">company</a></li>
-                            <li class="@if($page=='/gallery') active @endif"><a href="{{url('/gallery')}}">Gallery</a></li>
-                            <li class="@if($page=='/blog') active @endif"><a href="{{url('/blog')}}">News</a></li>
-                            <li class="@if($page=='/event') active @endif"><a href="{{url('/event')}}">Event</a>
-                            <li class="@if($page=='/contact') active @endif"><a href="{{url('/contact')}}">contact</a></li>            
-
+                            <li class="@if($page=='home') active @endif"><a href="{{url('/')}}">home</a></li>
+                            <li class="@if($page=='about') active @endif"><a href="{{url('/about')}}">about us</a></li>
+                            <li class="@if($page=='company') active @endif"><a href="{{url('/companies')}}">company</a></li>
+                            <li class="@if($page=='gallery') active @endif"><a href="{{url('/gallery')}}">Gallery</a></li>
+                            <li class="@if($page=='blog') active @endif"><a href="{{url('/blog')}}">News</a></li>
+                            <li class="@if($page=='event') active @endif"><a href="{{url('/event')}}">Event</a>
+                            <li class="@if($page=='contact') active @endif"><a href="{{url('/contact')}}">contact</a></li>         
                         </ul>
                     </div>
                 </div>

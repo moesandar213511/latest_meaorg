@@ -55,46 +55,53 @@
                          <form action="{{url('admin/update_info')}}" method="post" enctype="multipart/form-data">
                                 {{csrf_field()}}  
                             <input type="hidden" name="id" id="id" value="{{$website_info->id}}">
-                            <div class="col-md-7 pt-2 pb-2 mx-auto card" style="margin-top:30px;">
+                            <div class="col-md-10 pt-2 pb-2 mx-auto card" style="margin-top:30px;">
                                     <div class="row">
                                         <div class="col-md-4">
                                              <img src="{{asset('user/images/'.$website_info->sign_photo)}}" class="imagePreview" id="imgs" style="width: 100%;height: 100px;">
-                                    <label class="btn btn-md btn-primary container-fluid rounded-0 m-0" for="edit_upload_photo">Upload</label>
+                                    <label class="btn btn-md btn-primary container-fluid rounded-0 m-0" for="edit_upload_photo">Upload</label><br><br>
                                     <input type="file" style="display:none;" id="edit_upload_photo" name="image" class="form-control package_photo" onchange="displaySelectedPhoto('edit_upload_photo','imgs')">
                                         </div>
-                                    </div>  <br>                                               
+                                        
+                                    </div>  <br>                                              
                                     <div class="form-group">
+                                    <br>
                                         <label style="color:black;" for="update_webname" class="col-form-label"> Website Name:</label>
                                         <input type="text" class="form-control" id="update_webname" name="website_name" value="{{$website_info->website_name}}">
+                                        <br>
                                     </div>
 
                                     <div class="form-group">
                                         <label style="color:black;" for="update_about" class="col-form-label">About:</label><br>
                                         <textarea class="form-control" rows="4" id="update_about" name="about">{{$website_info->about}}</textarea> 
+                                        <br>
                                     </div>
 
                                     <div class="form-group">
+                                    
                                         <label style="color:black;" for="update_history" class="col-form-label">History:</label><br>
-                                        <textarea class="form-control" rows="4" id="update_history" name="history">{{$website_info->history}}</textarea> 
+                                        <textarea class="form-control" rows="4" id="update_history" name="history">{{$website_info->history}}</textarea>
+                                        <br> 
                                     </div>
 
                                      <div class="form-group">
                                         <label style="color:black;" for="update_vision" class="col-form-label">Vision:</label><br>
                                         <textarea class="form-control" rows="4" id="update_vision" name="vision">{{$website_info->vision}}</textarea>
+                                        <br>
                                     </div>
 
                                      <div class="form-group">
                                         <label style="color:black;" for="update_mission" class="col-form-label">Mission:</label><br>
-                                        <textarea class="form-control" rows="4" id="update_mission" name="mission">{{$website_info->mission}}</textarea>
+                                        <textarea class="form-control" rows="4" id="update_mission" name="mission">{{$website_info->mission}}</textarea><br>
                                     </div>
 
                                     <div class="form-group">
-                                        <label style="color:black;" for="update_name" class="col-form-label">Name:</label>
-                                        <input type="text" class="form-control" id="update_name" name="sign_name" value="{{$website_info->sign_name}}">
+                                        <label style="color:black;" for="update_name" class="col-form-label">Name:</label> <br>
+                                        <input type="text" class="form-control" id="update_name" name="sign_name" value="{{$website_info->sign_name}}"><br>
                                     </div>
 
                                     <div class="form-group">
-                                        <label style="color:black;" for="update_position" class="col-form-label">Position:</label>
+                                        <label style="color:black;" for="update_position" class="col-form-label">Position:</label> <br>
                                         <input type="text" class="form-control" id="update_position" name="sign_position" value="{{$website_info->sign_position}}">
                                     </div>
 
@@ -114,7 +121,7 @@
                                     </div>
 
                                    <br>
-                                    <input type="submit" name="submit" class="rounded-0 btn btn-md btn-info" value="Change">                          
+                                    <input type="submit" name="submit" class="rounded-0 btn btn-md btn-success" value="Change">                          
                             </div>
                         </form>                    
                 </div>  

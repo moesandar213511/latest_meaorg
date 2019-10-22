@@ -28,11 +28,7 @@
     @yield('css')
 </head>
 <body>
-    <!-- Preloader Starts -->
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
-    <!-- Preloader End -->
+ 
 
     <!-- Header Area Starts -->
     @include('user.site_user.user_header')

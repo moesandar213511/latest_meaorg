@@ -1,3 +1,12 @@
+<style>
+   @media(max-width:991px){
+       .single-widget-home ul li{
+           display:block;  
+           text-align:center;
+           margin-left: 0px!important;
+       }
+   }
+</style>
    <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=375244603347949&autoLogAppEvents=1"></script>
     <footer class="footer-area section-padding">
@@ -6,9 +15,9 @@
                     <div class="row">
                         <div class="col-md-3 ">
                             <div class="single-widget-home mb-5 mb-lg-0">
-                                <h3 class="mb-4">Our Company</h3>
+                                <h3 class="mb-4 text-center">Our Company</h3>
                                 <p class="our_company" style="text-align: justify;">{{substr($websiteinfo['about'],0,200)}} ...<br>
-                                <a href="{{url('about')}}">Read More</a>
+
                                 </p>
                               
                             </div>
@@ -30,8 +39,8 @@
                                 <h3 class="mb-4 footer-mid">Latest Blogs</h3>
                                 <ul>
                                     @for($i=0;$i<3;$i++)
-                                    <li class="mb-2 footer-mid">
-                                     <i class="fa fa-chevron-right"></i>
+                                    <li class="mb-2 ml-5">
+                                     <i class="fa fa-arrow-right"></i>
                                         <a href="{{url('blog/'.$latest_news[$i]['id'])}}">{{$latest_news[$i]['name']}}</a>
                                     </li>
                                     @endfor

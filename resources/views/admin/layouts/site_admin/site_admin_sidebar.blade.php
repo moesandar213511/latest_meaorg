@@ -50,12 +50,12 @@
                             <p>Company</p>
                         </a>
                     </li>
-                    <li class="nav-item @if($url=="main_category") active @endif">
+                    <!-- <li class="nav-item @if($url=="main_category") active @endif">
                         <a class="nav-link" href="{{url('admin/main_category')}}">
                             <i class="material-icons">dashboard</i>
                             <p>Main Category</p>
                         </a>
-                    </li> 
+                    </li>  -->
                     <li class="nav-item @if($url=="sub_category") active @endif">
                         <a class="nav-link" href="{{url('admin/sub_category')}}">
                             <i class="material-icons">bubble_chart</i>

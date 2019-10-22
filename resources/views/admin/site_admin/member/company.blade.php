@@ -94,7 +94,7 @@
                                         Upload Logo<input type="file" accept="image/png,image/jpeg,image/jpg" onchange="displaySelectedPhoto('upload_logo','image')" id="upload_logo" name="logo" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" required>
                                     </label>
                                 </div>
-                                <div class="col-sm-8">
+                                <div class="col-sm-12">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -158,8 +158,8 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="btn btn-primary upload_btn">
-                                        Upload Photos<input type="file" accept="image/png,image/jpeg,image/jpg" id="upload_photo" name="photos[]" class="uploadFile img" value="Upload Photos" style="width: 0px;height: 0px;overflow: hidden;" required multiple="multiple">
-                                    </label>
+                                                    Upload Photos<input type="file" accept="image/png,image/jpeg,image/jpg" id="upload_photo" name="photos[]" class="uploadFile img" value="Upload Photos" style="width: 0px;height: 0px;overflow: hidden;" required multiple="multiple">
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -177,42 +177,42 @@
                                         <textarea name="address" rows="3" class="form-control" id="address" required></textarea>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="web_url
                                             "><b>web-url</b></label>
                                         <input type="text" name="web_url" class="form-control" id="web_url" required>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="facebook_url
                                             "><b>facebook-url</b></label>
                                         <input type="text" name="facebook_url" class="form-control" id="facebook_url" required>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="what_we_do"
                                             "><b>what-we-do</b></label>
                                         <textarea name="what-we-do" rows="3" class="form-control" id="what_we_do" required></textarea>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="why_join_us
                                             "><b>why-join-us</b></label>
                                         <textarea name="why-join-us" rows="3" class="form-control" id="why_join_us" required></textarea>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="vision
                                             "><b>vision</b></label>
                                         <textarea name="vision" rows="3" class="form-control" id="vision" required></textarea>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="mission
                                             "><b>mission</b></label>
@@ -464,6 +464,7 @@
                     success: function(data){
                        // reset();
                         var company=JSON.parse(data);
+                        $('#edit_modalBox').modal('show');
                         //console.log(company);
                         $("#imgs").attr("src", company['photo_url']);
                         $('#id_edit').val(company['id']);
@@ -482,8 +483,6 @@
                         $('#update_about_us').val(company['about-us']);                        
                         $('#ads_date').val(company['ads_date']);
                         company['type']=="ads"?$("#ads").attr("selected","selected"):$("#ads").attr("selected","selected");
-
-                        $('#edit_modalBox').modal('show');
                     }
                 });
             }

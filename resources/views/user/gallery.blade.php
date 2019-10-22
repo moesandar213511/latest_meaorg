@@ -3,7 +3,14 @@
     Gallery |{{$websiteinfo['website_name']}}
 @endsection
 @section('content')
+
 <style>
+.main-menu ul li a{
+    text-decoration:none;
+}
+.main-menu a:hover{
+    text-decoration:none!inmportant;
+}
     .breadcrumbs ul li {
     display: inline-block;
     position: relative;
@@ -11,6 +18,15 @@
     font-size: 12px;
     font-weight: 600;
 
+}
+footer p{
+    font-size:16px!important;
+}
+footer a{
+    font-size:16px!important;
+}
+footer .single-widget-home li.ml-5{
+    margin-left: 60px!important;
 }
 .breadcrumbs ul li:not(:last-child)::after {
     display: inline-block;
