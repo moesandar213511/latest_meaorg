@@ -837,7 +837,7 @@
                         </div>
                     </div> --}}
 
-                    @foreach($ads_photo as $ads_photos)
+                    @foreach($ads_array as $ads_photos)
                     <div class="row main-content">
                         <div class="col-md-12">
                         <img src="{{asset('upload/ads/'.$ads_photos->photo)}}" alt="" width="100%" height="200px">

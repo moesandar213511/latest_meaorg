@@ -180,28 +180,28 @@
                 });
             }
 
-            $('#insert_main_category').on('submit',function (e)
-            {
-                e.preventDefault();
-                var alldata = new FormData(this);
-                $.ajax
-                ({
-                    type: "POST",
-                    url: "{{url('admin/insert_main_category')}}",
-                    data:alldata,
-                    cache:false,
-                    processData: false,
-                    contentType: false,
-                    success: function(data){
-                        // alert('itwork');
-                        //console.log(data);
-                        $('#modalBox').modal('hide');
-                        toastr.success('Create successful');
-                        load();
-                    }
-                });
-                return false;
-            });
+            // $('#insert_main_category').on('submit',function (e)
+            // {
+            //     e.preventDefault();
+            //     var alldata = new FormData(this);
+            //     $.ajax
+            //     ({
+            //         type: "POST",
+            //         url: "{{url('admin/insert_main_category')}}",
+            //         data:alldata,
+            //         cache:false,
+            //         processData: false,
+            //         contentType: false,
+            //         success: function(data){
+            //             // alert('itwork');
+            //             //console.log(data);
+            //             $('#modalBox').modal('hide');
+            //             toastr.success('Create successful');
+            //             load();
+            //         }
+            //     });
+            //     return false;
+            // });
 
             edit_data=function(id){
 

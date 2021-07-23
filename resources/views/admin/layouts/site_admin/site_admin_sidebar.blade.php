@@ -6,7 +6,7 @@
   -->
     <div class="logo">
         <a href="{{url('/')}}" target="_blank" class="simple-text logo-normal">
-            <img src="{{asset('/user/images/monlogo.jpg')}}" alt="" width="80px" height="80px;">
+            <img src="{{asset('/user/images/logo-mea.png')}}" alt="" width="80px" height="80px;">
         </a>
     </div>
  <div class="sidebar-wrapper">

@@ -11,19 +11,29 @@ use App\MainCategory;
 use App\Member;
 use App\WebSiteInfo;
 use App\Ads;
+use App\Ads_webpage;
 use App\CustomClass\BlogData;
 use App\CustomClass\CompanyData;
 use App\CustomClass\EventData;
 use App\CustomClass\MemberData;
 use App\CustomClass\SubcategoryData;
 use App\CustomClass\WebSiteInfoData;
+use App\CustomClass\AdsData;
 use App\SubCategory;
 use Illuminate\Http\Request;
 
 class UIController extends Controller
 {
     public function index(){
-        $ads_photo = Ads::all();
+        // $ads_photo = Ads::all();
+        $ads_list = Ads_webpage::where('webpage_id',1)->get();
+        $arr = [];
+        foreach ($ads_list as $data) {
+            $ads_data = new AdsData($data->ads_id);
+            array_push($arr, $ads_data->getAdsData());
+        }
+        //  return $arr;
+
         $website_info=WebSiteInfoData::getWebSiteInfo();
         $subcategory=SubCategory::paginate(8);
         $subcategorydata=SubcategoryData::getCustomLimitSubCategory($subcategory);
@@ -46,10 +56,20 @@ class UIController extends Controller
             'main_categories'=>$main_categories,
             'default_sub_categories'=>$default_sub_categories,
             'page'=>'home',
-            'ads_photo' => $ads_photo
+            // 'ads_photo' => $ads_photo,
+            'ads_array' => $arr
         ]);
     }
     public function company_list(){
+        $ads_list = Ads_webpage::where('webpage_id', 3)->get();
+        $arr = [];
+        foreach ($ads_list as $data) {
+            $ads_data = new AdsData($data->ads_id);
+            array_push($arr, $ads_data->getAdsData());
+        }
+
+
+        $ads_photo = Ads::all();
         $website_info=WebSiteInfoData::getWebSiteInfo();
         $latest_news=BlogData::getLatestBlog(4);
 
@@ -59,10 +79,11 @@ class UIController extends Controller
         return view('user.company_list')->with([
             'websiteinfo'=>$website_info,
             'latest_news'=>$latest_news,
-
+            'ads_photo' => $ads_photo,
             'companies'=>$company_list,
             'paginate'=>$companies,
-            'page'=>'company'
+            'page'=>'company',
+            'ads_array' => $arr
         ]);
     }
 
@@ -113,6 +134,13 @@ class UIController extends Controller
 
     }
      public function about(){
+        $ads_list = Ads_webpage::where('webpage_id', 1)->get();
+        $arr = [];
+        foreach ($ads_list as $data) {
+            $ads_data = new AdsData($data->ads_id);
+            array_push($arr, $ads_data->getAdsData());
+        }
+
          $website_info=WebSiteInfoData::getWebSiteInfo();
          $latest_news=BlogData::getLatestBlog(4);
 
@@ -192,6 +220,14 @@ class UIController extends Controller
         ]);
     }
      public function event(){
+        $ads_list = Ads_webpage::where('webpage_id', 6)->get();
+        $arr = [];
+        foreach ($ads_list as $data) {
+            $ads_data = new AdsData($data->ads_id);
+            array_push($arr, $ads_data->getAdsData());
+        }
+
+        $ads_photo = Ads::all();
          $website_info=WebSiteInfoData::getWebSiteInfo();
          $latest_news=BlogData::getLatestBlog(4);
          $latest_event=EventData::getLatestEvent(6);
@@ -203,13 +239,22 @@ class UIController extends Controller
              'websiteinfo'=>$website_info,
              'latest_news'=>$latest_news,
              'latest_event'=>$latest_event,
-
+            'ads_photo' => $ads_photo,
              'events'=>$events_data,
              'paginate'=>$events,
-             'page'=>'event'
+             'page'=>'event',
+             'ads_array' => $arr
          ]);
     }
     public function blog(){
+        $ads_list = Ads_webpage::where('webpage_id', 5)->get();
+        $arr = [];
+        foreach ($ads_list as $data) {
+            $ads_data = new AdsData($data->ads_id);
+            array_push($arr, $ads_data->getAdsData());
+        }
+
+        $ads_photo = Ads::all();
         $website_info=WebSiteInfoData::getWebSiteInfo();
         $latest_news=BlogData::getLatestBlog(6);
 
@@ -221,7 +266,9 @@ class UIController extends Controller
             'latest_news'=>$latest_news,
             'blogs'=>$blog_data,
             'paginate'=>$blogs,
-            'page'=>'blog'
+            'page'=>'blog',
+            'ads_photo' => $ads_photo,
+            'ads_array' => $arr
         ]);
     }
      public function event_single($id){

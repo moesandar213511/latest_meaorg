@@ -157,16 +157,14 @@
                         </div>                              
                     </div>
                     
+                    @foreach($ads_array as $ads_photos)
                     <div class="row main-content">
-                         <div class="col-lg-12">
-                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
-                         </div>
+                        <div class="col-lg-12">
+                        <img src="{{asset('upload/ads/'.$ads_photos->photo)}}" alt="" width="100%" height="200px">
+                        </div>
                     </div>
-                    <div class="row main-content">
-                         <div class="col-lg-12">
-                             <img src="{{asset('user/images/ad.jpg')}}" width="100%">
-                         </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>  

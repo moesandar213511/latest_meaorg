@@ -2,10 +2,10 @@
 -- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 22, 2019 at 06:08 AM
+-- Host: localhost:4306
+-- Generation Time: Jul 23, 2021 at 07:26 AM
 -- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,7 +45,10 @@ CREATE TABLE `ads` (
 INSERT INTO `ads` (`id`, `photo`, `link`, `s_date`, `e_date`, `created_at`, `updated_at`) VALUES
 (5, '5da6e13a987e3_1.jpg', 'https://www.foreliink.com/', '2019-10-16', '2019-10-18', '2019-10-16 02:51:16', '2019-10-16 02:52:02'),
 (6, '5da6e17650cb1_0b7d1785d9b549dcd090c148728958df_full.jpg', 'https://www.foreliink.com/', '2019-10-16', '2019-10-18', '2019-10-16 02:53:02', '2019-10-16 02:53:02'),
-(8, '5da92d31315ac_0014.jpg', 'https://www.foreliink.com/', '2019-10-18', '2019-10-21', '2019-10-17 20:40:30', '2019-10-17 20:40:41');
+(8, '5da92d31315ac_0014.jpg', 'https://www.foreliink.com/', '2019-10-18', '2019-10-21', '2019-10-17 20:40:30', '2019-10-17 20:40:41'),
+(9, '5daf04538aec4_03.jpg', 'https://www.foreliink.com/', '2019-10-22', '2019-10-23', '2019-10-22 06:59:55', '2019-10-22 06:59:55'),
+(10, '5daffd6a900ce_03061_pontevecchioreflection_1920x1408.jpg', 'https://www.netscriper.com/', '2019-10-22', '2019-10-24', '2019-10-23 00:42:42', '2019-10-23 00:42:42'),
+(11, '5daffdffb2e54_de-wp2.jpg', 'https://www.netscriper.com/', '2019-10-24', '2019-10-25', '2019-10-23 00:45:11', '2019-10-23 00:45:11');
 
 -- --------------------------------------------------------
 
@@ -68,10 +71,18 @@ CREATE TABLE `ads_webpages` (
 INSERT INTO `ads_webpages` (`id`, `ads_id`, `webpage_id`, `created_at`, `updated_at`) VALUES
 (24, 5, 1, '2019-10-16 02:52:02', '2019-10-16 02:52:02'),
 (25, 5, 2, '2019-10-16 02:52:02', '2019-10-16 02:52:02'),
-(26, 6, 1, '2019-10-16 02:53:02', '2019-10-16 02:53:02'),
+(26, 6, 6, '2019-10-16 02:53:02', '2019-10-16 02:53:02'),
 (27, 6, 2, '2019-10-16 02:53:02', '2019-10-16 02:53:02'),
 (36, 8, 1, '2019-10-17 20:40:42', '2019-10-17 20:40:42'),
-(37, 8, 2, '2019-10-17 20:40:42', '2019-10-17 20:40:42');
+(37, 8, 2, '2019-10-17 20:40:42', '2019-10-17 20:40:42'),
+(40, 9, 1, '2019-10-22 07:00:02', '2019-10-22 07:00:02'),
+(41, 9, 5, '2019-10-22 07:00:02', '2019-10-22 07:00:02'),
+(42, 9, 3, '2019-10-22 07:00:02', '2019-10-22 07:00:02'),
+(43, 10, 5, '2019-10-23 00:42:42', '2019-10-23 00:42:42'),
+(44, 10, 6, '2019-10-23 00:42:42', '2019-10-23 00:42:42'),
+(48, 11, 1, '2019-10-23 01:13:32', '2019-10-23 01:13:32'),
+(49, 11, 3, '2019-10-23 01:13:32', '2019-10-23 01:13:32'),
+(50, 11, 5, '2019-10-23 01:13:32', '2019-10-23 01:13:32');
 
 -- --------------------------------------------------------
 
@@ -168,7 +179,8 @@ INSERT INTO `companies` (`id`, `member_id`, `logo`, `name`, `sub_category_id`, `
 (27, 2, '5da76a5b5e983_wallpaper10_lg.jpg', 'phyo  company', 6, 'phyo@gmail.com', '09543345876', 'yangon', 'https://www.facebook.com/pop.starlay.1', 'https://www.facebook.com/pop.starlay.1', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, suscipit! Libero enim, accusantium nihil voluptas adipisci officiis. Minima quos voluptatum odio nisi mollitia? Perferendis, beatae. Totam vel perferendis expedita non.', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, suscipit! Libero enim, accusantium nihil voluptas adipisci officiis. Minima quos voluptatum odio nisi mollitia? Perferendis, beatae. Totam vel perferendis expedita non.', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, suscipit! Libero enim, accusantium nihil voluptas adipisci officiis. Minima quos voluptatum odio nisi mollitia? Perferendis, beatae. Totam vel perferendis expedita non.', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, suscipit! Libero enim, accusantium nihil voluptas adipisci officiis. Minima quos voluptatum odio nisi mollitia? Perferendis, beatae. Totam vel perferendis expedita non.', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, suscipit! Libero enim, accusantium nihil voluptas adipisci officiis. Minima quos voluptatum odio nisi mollitia? Perferendis, beatae. Totam vel perferendis expedita non.', 'ads', '2019-10-17', '2019-10-16 12:37:07', '2019-10-17 21:58:38'),
 (28, 3, '5da76e4638420_0103.jpg', 'Zaylay', 14, 'zayy@gmail.com', '09799261714', 'yangon', 'https://www.facebook.com/pop.starlay.1', 'https://www.facebook.com/pop.starlay.1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex veritatis molestiae assumenda consectetur facilis illum accusamus voluptatum, quisquam dolore eaque quo commodi, debitis optio excepturi! Sed soluta fugiat minus tempore.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex veritatis molestiae assumenda consectetur facilis illum accusamus voluptatum, quisquam dolore eaque quo commodi, debitis optio excepturi! Sed soluta fugiat minus tempore.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex veritatis molestiae assumenda consectetur facilis illum accusamus voluptatum, quisquam dolore eaque quo commodi, debitis optio excepturi! Sed soluta fugiat minus tempore.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex veritatis molestiae assumenda consectetur facilis illum accusamus voluptatum, quisquam dolore eaque quo commodi, debitis optio excepturi! Sed soluta fugiat minus tempore.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex veritatis molestiae assumenda consectetur facilis illum accusamus voluptatum, quisquam dolore eaque quo commodi, debitis optio excepturi! Sed soluta fugiat minus tempore.', 'ads', '2019-10-09', '2019-10-16 12:53:50', '2019-10-16 12:53:50'),
 (29, 2, '5da93fd3d0a0b_3d_1171.jpg', 'IT company', 5, 'phyo@gmail.com', '09543345876', 'yangon', 'https://www.facebook.com/pop.starlay.1', 'https://www.facebook.com/pop.starlay.1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quo sequi pariatur! Nostrum, molestias laboriosam minima dolorem quas eaque provident rerum inventore ab veritatis pariatur corrupti soluta necessitatibus expedita non.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quo sequi pariatur! Nostrum, molestias laboriosam minima dolorem quas eaque provident rerum inventore ab veritatis pariatur corrupti soluta necessitatibus expedita non.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quo sequi pariatur! Nostrum, molestias laboriosam minima dolorem quas eaque provident rerum inventore ab veritatis pariatur corrupti soluta necessitatibus expedita non.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quo sequi pariatur! Nostrum, molestias laboriosam minima dolorem quas eaque provident rerum inventore ab veritatis pariatur corrupti soluta necessitatibus expedita non.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quo sequi pariatur! Nostrum, molestias laboriosam minima dolorem quas eaque provident rerum inventore ab veritatis pariatur corrupti soluta necessitatibus expedita non.', 'ads', '2019-10-18', '2019-10-17 21:25:44', '2019-10-17 22:00:11'),
-(30, 6, '5daa87beca97f_111.jpg', 'Pyae Pyae Company', 7, 'pyae@gmail.com', '09765432234', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'https://www.facebook.com/pop.starlay.1', 'https://www.facebook.com/pop.starlay.1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'normal', '2019-10-19', '2019-10-18 21:19:18', '2019-10-18 21:19:18');
+(30, 6, '5daa87beca97f_111.jpg', 'Pyae Pyae Company', 7, 'pyae@gmail.com', '09765432234', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'https://www.facebook.com/pop.starlay.1', 'https://www.facebook.com/pop.starlay.1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, velit temporibus? Reprehenderit id amet, autem et dicta impedit ea ipsam facere voluptatibus nihil placeat incidunt eaque illo soluta porro doloribus?', 'normal', '2019-10-19', '2019-10-18 21:19:18', '2019-10-18 21:19:18'),
+(31, 7, '5daf069040754_222.jpg', 'Chit Chit Company', 4, 'chit@gmail.com', '09543345876', 'north dagon', 'dfgdgdg', 'https://www.facebook.com/pop.starlay.1', 'dfgdgfdfg', 'gfgergd', 'dfgdg', 'fgdgdf', 'eddgdfggg', 'normal', '2019-10-16', '2019-10-22 07:09:28', '2019-10-22 07:09:28');
 
 -- --------------------------------------------------------
 
@@ -194,7 +206,8 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `message`, `created_at
 (2, 'Ye Yint Ko', 'admin@gmail.com', 'Drewry: Proposed US Auto Tariffs to Affect East-West Trade Routes', 'aaasdassd', '2019-10-12 08:21:51', '2019-10-12 08:21:51'),
 (3, 'Grand Diamond Guest House', 'yeyintko.mkn@gmail.com', 'Drewry: Proposed US Auto Tariffs to Affect East-West Trade Routes', 'sdsd', '2019-10-12 08:22:30', '2019-10-12 08:22:30'),
 (4, 'mon lay', 'monlay@gmail.com', 'Mingalar Par', 'dfrfwerwerwerwerwerwerwerwfdsfsdfsfdsfsdfsdfsfsfsdfsdfsfsfsdfsfsdfsdfsfsfsfs', '2019-10-17 20:23:46', '2019-10-17 20:23:46'),
-(5, 'mm', 'teacher@gmail.com', 'Mingalar Parsds', 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero\'s De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:', '2019-10-18 07:07:54', '2019-10-18 07:07:54');
+(5, 'mm', 'teacher@gmail.com', 'Mingalar Parsds', 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero\'s De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:', '2019-10-18 07:07:54', '2019-10-18 07:07:54'),
+(6, 'Moon Lay', 'moon123@gmail.com', 'helloworld', 'rgrrtertertetert', '2019-10-22 22:21:07', '2019-10-22 22:21:07');
 
 -- --------------------------------------------------------
 
@@ -351,7 +364,11 @@ INSERT INTO `galleries` (`id`, `photo`, `company_id`, `created_at`, `updated_at`
 (106, '5daa87bfcf0cd_14.jpg', 30, '2019-10-18 21:19:19', '2019-10-18 21:19:19'),
 (107, '5daa87bfddb05_0017.jpg', 30, '2019-10-18 21:19:19', '2019-10-18 21:19:19'),
 (108, '5daa87bfe48fe_17.jpg', 30, '2019-10-18 21:19:19', '2019-10-18 21:19:19'),
-(109, '5daa87bff09fb_19.jpg', 30, '2019-10-18 21:19:19', '2019-10-18 21:19:19');
+(109, '5daa87bff09fb_19.jpg', 30, '2019-10-18 21:19:19', '2019-10-18 21:19:19'),
+(110, '5daf0690c1a6b_$458.jpg', 31, '2019-10-22 07:09:28', '2019-10-22 07:09:28'),
+(111, '5daf06a9d5af7_19.jpg', 31, '2019-10-22 07:09:29', '2019-10-22 07:09:53'),
+(112, '5daf0691237df_(111).jpg', 31, '2019-10-22 07:09:29', '2019-10-22 07:09:29'),
+(113, '5daf069142530_0b7d1785d9b549dcd090c148728958df_full.jpg', 31, '2019-10-22 07:09:29', '2019-10-22 07:09:29');
 
 -- --------------------------------------------------------
 
@@ -372,7 +389,12 @@ CREATE TABLE `main_categories` (
 
 INSERT INTO `main_categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (2, 'redmi', '2019-10-09 17:30:00', '2019-10-09 17:30:00'),
-(3, 'aPPLE', '2019-10-10 08:09:34', '2019-10-10 08:35:22');
+(3, 'aPPLE', '2019-10-10 08:09:34', '2019-10-10 08:35:22'),
+(4, 'vvvvvvv', '2019-10-22 04:20:06', '2019-10-22 04:20:06'),
+(5, 'Moon Lay', '2019-10-22 04:21:26', '2019-10-22 04:21:26'),
+(6, 'Friend Zone', '2019-10-22 04:27:55', '2019-10-22 04:27:55'),
+(7, 'aedqee', '2019-11-05 09:32:04', '2019-11-05 09:32:04'),
+(8, 'efewrwwrwrqw', '2019-11-05 09:32:15', '2019-11-05 09:32:15');
 
 -- --------------------------------------------------------
 
@@ -404,7 +426,7 @@ INSERT INTO `members` (`id`, `name`, `phone`, `address`, `education`, `detail`, 
 (2, 'Phyo Thazin', '09765432234', 'Thar Kay Ta', 'B.E(IT)', 'dsfsfsfsfdsfsfsfdsfsfsfsfs', '5da9bb703aa55_0527ED06372C-1.jpg', 'https://web.facebook.com/thazin.phyo.988', '#', 'https://web.facebook.com/thazin.phyo.988', 'special', '2019-10-09 07:09:44', '2019-10-18 21:11:13'),
 (3, 'Zayy Lin', '09123456789', 'yangon', 'B.Tech(IT)', 'testing', '5da93d0b02170_1212.jpg', '', '', '', 'normal', '2019-10-10 22:24:58', '2019-10-17 21:48:19'),
 (4, 'Ye Yint Ko', '09771672511', 'Myitkyina', 'B.Sc', 'since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ip', '5da9bb51d76e0_010.jpg', 'https://web.facebook.com/profile.php?id=100011426835764', 'https://web.facebook.com/profile.php?id=100011426835764', '#', 'special', '2019-10-12 04:28:14', '2019-10-18 06:47:05'),
-(6, 'Ko Pyae', '09799261714', 'Hledan', 'B.Tech(IT)', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae ex quisquam expedita facere, esse repudiandae, dolorem asperiores rerum repellendus voluptas dignissimos minima quia. Illum, voluptatum necessitatibus. Voluptatibus, rerum beatae!', '5daa87f544519_03063_leaflife_1920x1408.jpg', 'https://web.facebook.com/profile.php?id=100011643256760', 'https://web.facebook.com/profile.php?id=100011643256760', 'https://web.facebook.com/profile.php?id=100011643256760', 'special', '2019-10-18 21:15:39', '2019-10-18 21:20:13');
+(7, 'Chit Chit', '09543345876', 'yanghon', 'B.E(IT)', 'fsfsdfsfsdfsdfsdfsdsdfsd', '5daf04e9a07b8_03.jpg', 'https://web.facebook.com/thazin.phyo.988', 'https://web.facebook.com/thazin.phyo.988', 'https://web.facebook.com/thazin.phyo.988ertetrtet', 'special', '2019-10-22 07:02:25', '2019-10-22 07:11:09');
 
 -- --------------------------------------------------------
 
@@ -511,7 +533,7 @@ INSERT INTO `users` (`id`, `email`, `email_verified_at`, `password`, `type`, `me
 (8, 'phyo@gmail.com', NULL, '$2y$10$CzYojZgp721acN/DdOtVpOkUqKmZ0jCJdTHkakR72U96iRJc4MRUq', 'member', 2, NULL, '2019-10-09 07:09:44', '2019-10-09 07:09:44'),
 (9, 'zayy@gmail.com', NULL, '$2y$10$2B1iwQAA5NOsaZ.kvI7Hy.49IdPt5hAyE7eAUj68zMOgZdCqQdNzO', 'member', 3, NULL, '2019-10-10 22:24:59', '2019-10-10 22:24:59'),
 (10, 'yeyintko.mkn@gmail.com', NULL, '$2y$10$xtqhbEOz1uNqCgaYfoftYek/dS2Gkzd8sHbdA2N7lCdj24JkZRWga', 'member', 4, NULL, '2019-10-12 04:28:14', '2019-10-12 04:28:14'),
-(12, 'pyae@gmail.com', NULL, '$2y$10$SImh7WUt0Iy.ur9eFnmQ1eQWbrCFOhNuLymd9XHDqXRjt0obURru6', 'member', 6, NULL, '2019-10-18 21:15:39', '2019-10-18 21:15:39');
+(13, 'chit@gmail.com', NULL, '$2y$10$CD6zraLra2TptH6Zg4sejujLg9/Ae1oIr1iM2OvcZ3Gsvbi7jk2Z.', 'member', 7, NULL, '2019-10-22 07:02:26', '2019-10-22 07:02:26');
 
 -- --------------------------------------------------------
 
@@ -567,7 +589,7 @@ CREATE TABLE `web_site_infos` (
 --
 
 INSERT INTO `web_site_infos` (`id`, `website_name`, `about`, `history`, `vision`, `mission`, `sign_photo`, `sign_name`, `sign_position`, `email`, `phone`, `address`, `created_at`, `updated_at`) VALUES
-(1, 'Mon Entreprenures Association', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsuis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu', '5da9d37b60751_welcom_sign.png', 'DR. AUNG WIN HTUT', 'PH.D (ELECTRICAL POWER) (MPEI)', 'info@moeorg.com', '09776556677', '4th Floor, Hotel Sincere Smile Hotel Mya Yamon Riverbank Esplanade Villa Yangon, Northern Kyeepwaryae 11071', NULL, '2019-10-18 08:30:33');
+(1, 'Mon Entreprenures Association', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsuis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu', '5da9d37b60751_welcom_sign.png', 'DR. AUNG WIN HTUT', 'PH.D (ELECTRICAL POWER) (MPEI)', 'info@moeorg.com', '09776556677', '4th Floor, Hotel Sincere Smile Hotel Mya Yamon Riverbank Esplanade Villa Yangon, Northern Kyeepwaryae 11071', NULL, '2019-10-22 07:00:35');
 
 --
 -- Indexes for dumped tables
@@ -678,13 +700,13 @@ ALTER TABLE `web_site_infos`
 -- AUTO_INCREMENT for table `ads`
 --
 ALTER TABLE `ads`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `ads_webpages`
 --
 ALTER TABLE `ads_webpages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -696,13 +718,13 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -720,19 +742,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `galleries`
 --
 ALTER TABLE `galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `main_categories`
 --
 ALTER TABLE `main_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -750,7 +772,7 @@ ALTER TABLE `sub_categories`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `webpages`

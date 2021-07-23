@@ -363,7 +363,7 @@
                 // alert(id);
                 $.ajax({
                     type: "get",
-                    url: "./edit/member/"+id,
+                    url: "../edit/member/"+id,
 
                     cache: false,
                     success: function(data){
@@ -371,6 +371,7 @@
                         // console.log(data);
                         var member=JSON.parse(data);
                         console.log(member);
+                        $('#edit_modalBox').modal('show');
                         $("#imgs").attr("src", member['photo_url']);
                         $('#id_edit').val(member['id']);
                         $('#update_name').val(member['name']);
@@ -382,7 +383,6 @@
                         $('#update_fb_link').val(member['fb_link']);
                         $('#update_tw_link').val(member['tw_link']);
                         $('#update_in_link').val(member['in_link']);
-                        $('#edit_modalBox').modal('show');
                     }
                 });
             }
@@ -414,7 +414,7 @@
                 if(confirm('Are you sure You want to delete!')==true){
                     $.ajax({
                         type: "get",
-                        url: "./delete_member/"+id,
+                        url: "../delete_member/"+id,
 
                         cache: false,
                         success: function(data){

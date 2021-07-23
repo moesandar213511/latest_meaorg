@@ -11,7 +11,7 @@
     <title>@yield('title')</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset('/user/images/monlogo.jpg')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('/user/images/logo-mea.png')}}" type="image/x-icon">
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{asset('user/css/animate-3.7.0.css')}}">

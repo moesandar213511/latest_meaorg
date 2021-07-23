@@ -347,7 +347,7 @@
                         //console.log(data);
                         $('#modalBox2').modal('hide');
                         toastr.success('Create successful');
-                        main_load();
+                        // main_load();
                     }
                 });
                 return false;

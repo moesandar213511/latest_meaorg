@@ -163,10 +163,11 @@ class AdsController extends Controller
     {
         $ads_list = Ads::orderBy('id','desc')->get();
         $arr=[];
-        foreach ($ads_list as $data) {
+        foreach ($ads_list as $data){
             $ads_data = new AdsData($data->id);
             array_push($arr, $ads_data->getAdsData());
         }
+        // return $arr;
         return json_encode($arr);
     }
 }
